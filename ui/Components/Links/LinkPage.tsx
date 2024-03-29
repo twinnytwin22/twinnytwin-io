@@ -9,7 +9,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import { getSanityImage } from "../../sanity/lib/image";
+import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import { SiCashapp } from "react-icons/si";
 
 function LinkPage({ links }: any) {
