@@ -35,7 +35,7 @@ export const ButtonGroup = ({ song, links }: {song: any, links?: any}) => {
   const image = getSanityImage(song.coverImage)
   return (
     <div className="link-modal">
-        <h1 className="text-lg font-lora text-center mb-2">
+        <h1 className="text-lg font-owners font-bold text-center mb-2">
             {song?.title}
         </h1>
         <Image alt={song.title} width={250} height={250} src={image} className="rounded-md mx-auto"/>
@@ -47,7 +47,7 @@ export const ButtonGroup = ({ song, links }: {song: any, links?: any}) => {
           <div className="text-white text-center w-full bg-green-700 hover:bg-green-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none dark:focus:ring-blue-800">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaSpotify />
-              <p>Listen on Spotify</p>{" "}
+              <p className="font-owners font-bold">Listen on Spotify</p>{" "}
             </div>
           </div>
         </Link>
