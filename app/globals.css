@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/smr3juh.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +16,17 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
 
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
