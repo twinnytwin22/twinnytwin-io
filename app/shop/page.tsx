@@ -15,7 +15,7 @@ async function page() {
     
          <div className='flex w-full justify-center md:justify-between flex-wrap h-fit items-center mx-auto '>
             {products.map((product: any) => (
-                <Link href={`/product/${product._id}`} className='p-4' id={product._id}>
+                <Link key={product._id} href={`/product/${product._id}`} className='p-4' id={product._id}>
                     <Image
                                         className='md:min-w-48 md:min-h-48 md:hover:scale-110 ease-in-out duration-300'
     

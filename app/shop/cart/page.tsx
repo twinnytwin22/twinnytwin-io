@@ -15,7 +15,7 @@ const grandTotal = (cartItems: any[]) => {
   return (parseFloat(subTotal(cartItems)) + shipping).toFixed(2); // Parse to float
 };
 
-function page() {
+function Page() {
     const {cartItems, totalPrice} = useCommerceContext()
   return (
 
@@ -73,4 +73,4 @@ function page() {
 </main>  )
 }
 
-export default page
+export default Page
