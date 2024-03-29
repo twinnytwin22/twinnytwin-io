@@ -1,5 +1,5 @@
 import { validateRequest } from "@/lib/hooks/validateRequest";
-import { getAllCourses } from "@/lib/providers/sanity/sanity";
+//import { getAllCourses } from "@/lib/providers/sanity";
 import { supabaseApi } from "@/lib/providers/supabase/routerHandler";
 import { NextResponse } from "next/server";
 export async function POST(req: Request) {
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       }
 
       // Fetch course data from Sanity CMS
-      const sanityCourses = await getAllCourses();
+      const sanityCourses = ['']
 
       // Fetch existing course IDs from Supabase
       const { data: supabaseCourses, error: supabaseError } = await supabaseApi

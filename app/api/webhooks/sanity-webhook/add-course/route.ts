@@ -1,5 +1,5 @@
 import { validateRequest } from "@/lib/hooks/validateRequest";
-import { getAllCourses, imageBuilder } from "@/lib/providers/sanity/sanity";
+import { imageBuilder } from "@/lib/providers/sanity";
 import { supabaseApi } from "@/lib/providers/supabase/routerHandler";
 import { NextResponse } from "next/server";
 
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       }
 
       // Fetch course data from Sanity CMS
-      const sanityCourses = await getAllCourses();
+      const sanityCourses = ['']
 
       // Transform and upsert all courses into Supabase
       const upsertPromises = sanityCourses.map(async (sanityCourse: any) => {
