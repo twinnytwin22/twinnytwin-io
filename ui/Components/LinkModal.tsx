@@ -8,10 +8,38 @@ import { getSanityImage } from "lib/providers/sanity/lib/image";
 import Image from "next/image";
 import { useHandleOutsideClick } from "utils/hooks/handleOutsideClick";
 import { SocialLinkGroup } from "./Links/SocialLinksGroup";
+
+const spotifyUrlRegex: { [key: string]: RegExp } = {
+  artist: /https:\/\/open.spotify.com\/artist\/([a-zA-Z0-9]+)/,
+  track: /https:\/\/open.spotify.com\/track\/([a-zA-Z0-9]+)/,
+  playlist: /https:\/\/open.spotify.com\/playlist\/([a-zA-Z0-9]+)/
+};
+const getTypeAndId = (url: string) => {
+  for (const [type, regex] of Object.entries(spotifyUrlRegex)) {
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return { type, id: match[1] };
+    }
+  }
+  return null; // Invalid URL or unsupported type
+};
+
+
+function extractTrackId(url: string, type: string) {
+  const match = url.match(spotifyUrlRegex[type]);
+
+ if (match && match.length > 1) {
+   return match[1];
+ }
+  return '1UEDOxQBNAXS8sbehXdFqa';
+}
+
+
 function LinkModal() {
   const { song } = useLinkStore();
   const setSong = (song: any) => useLinkStore.setState({ song });
 
+  
   useHandleOutsideClick(song,setSong,'link-modal')
   return (
     <>
@@ -42,6 +70,7 @@ export const ButtonGroup = ({ song, links }: {song: any, links?: any}) => {
         <div className="scale-75 mx-auto my-4">
         {links && <SocialLinkGroup links={links}/>}
         </div>
+        {song?.spotifyUrl && (  <iframe className="mb-4" src={`https://open.spotify.com/embed/track/${extractTrackId(song.spotifyUrl, 'track')}?utm_source=generator`} width="100%" height="152"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)}
       {song?.spotifyUrl && (
         <Link target="_blank" href={song.spotifyUrl}>
           <div className="text-white text-center w-full bg-green-700 hover:bg-green-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none dark:focus:ring-blue-800">

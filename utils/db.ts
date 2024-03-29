@@ -11,6 +11,12 @@ export const getSongs = async () => {
     const res = await fetchSanity(query)
     return res
 }
+
+const getCollectibles = async () => {
+    const query =  `%5B_type+%3D%3D+%22collection%22%5D%0A%0A`
+    const res = await fetchSanity(query)
+    return res
+}
 export const getShows = async () => {
     const query = `*%5B_type+%3D%3D+%22shows%22%5D%0A%0A`
     const res = await fetchSanity(query)

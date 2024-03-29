@@ -30,7 +30,7 @@ const props = {
           />
         </div>
         
-        <div className="bg-black border border-zinc-800 rounded p-5 max-w-md mx-auto min-h-72 relative z-30 -mt-36">
+        <div className="bg-black border place-items-center top-10 md:top-16 border-zinc-800 rounded p-5 max-w-md mx-auto min-h-72 relative z-30 -mt-36">
           <ButtonGroup {...props} />
         </div>
       </div>
