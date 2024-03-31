@@ -1,4 +1,4 @@
-import { supabaseRouteHandler } from "@/lib/providers/supabase/supabase-server";
+import { supabaseRouteHandler } from "app/supabase-server";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {

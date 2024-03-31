@@ -4,7 +4,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { cache } from "react";
-import { supabaseAdmin } from "./supabase-lib-admin";
+import { supabaseAdmin } from "../lib/providers/supabase/supabase-lib-admin";
 
 export const createServerSupabaseClient = cache(() => {
   const cookieStore = cookies();
