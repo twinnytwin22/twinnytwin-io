@@ -1,18 +1,16 @@
 import { getURL } from "@/lib/hooks/helpers";
 import { stripe } from "@/lib/providers/stripe/stripe";
-import { createOrRetrieveCustomer } from "@/lib/providers/supabase/supabase-lib-admin";
-import { createServerSupabaseClient } from "@/lib/providers/supabase/supabase-server";
+import { createOrRetrieveCustomer, supabaseAdmin } from "@/lib/providers/supabase/supabase-lib-admin";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   if (req.method === "POST") {
     try {
-      const supabase = createServerSupabaseClient();
 
       const {
         data: { user },
-      } = await supabase.auth.getUser();
+      } = await supabaseAdmin.auth.getUser();
 
       if (!user) throw Error("Could not get user");
       const customer = await createOrRetrieveCustomer({

@@ -1,4 +1,4 @@
-import { supabaseRouteHandler } from "@/lib/providers/supabase/supabase-server";
+import { supabaseAdmin } from "@/lib/providers/supabase/supabase-lib-admin";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -8,8 +8,7 @@ export async function GET(req: Request) {
   const next = searchParams.get("next") ?? "/";
 
   if (token_hash && type) {
-    const supabase = supabaseRouteHandler();
-    const { error } = await supabase.auth.verifyOtp({ type, token_hash });
+    const { error } = await supabaseAdmin.auth.verifyOtp({ type, token_hash });
     if (!error) {
       return NextResponse.redirect(new URL(`/${next.slice(1)}`, req.url));
     }
