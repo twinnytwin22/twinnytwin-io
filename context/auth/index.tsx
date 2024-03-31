@@ -1,6 +1,6 @@
 "use client";
 import { supabaseAdmin } from "@/lib/providers/supabase/supabase-lib-admin";
-import { getSession } from "app/supabase-server";
+import { getSession } from "@/lib/providers/supabase/supabase-server";
 
 import { AuthChangeEvent, Session } from "@supabase/supabase-js";
 import { useQuery } from "@tanstack/react-query";
