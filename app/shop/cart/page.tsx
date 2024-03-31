@@ -1,4 +1,5 @@
 "use client";
+import { grandTotal } from "@/lib/constants";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import Image from "next/image";
 import React from "react";
@@ -13,12 +14,9 @@ import {
   CartActions,
   CartEntry as ICartEntry,
 } from "use-shopping-cart/core";
-const shipping = 7.99;
 
 
-export const grandTotal = (totalPrice: number) => {
-  return (totalPrice + shipping).toFixed(2); // Parse to float
-};
+
 
 function CartEntry({
   entry,

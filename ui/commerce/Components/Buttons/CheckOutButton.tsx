@@ -1,10 +1,11 @@
 'use client'
-import { grandTotal } from 'app/shop/cart/page'
+import { grandTotal } from '@/lib/constants'
 import React, {useState} from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 
 function CheckOutButton() {
     const [status, setStatus] = useState('idle')
+ 
     const { redirectToCheckout, cartCount, totalPrice, cartDetails } =
       useShoppingCart()
     async function handleClick(event: any) {

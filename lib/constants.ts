@@ -36,3 +36,7 @@ export const CURRENCY = "usd";
 export const MIN_AMOUNT = 10.0;
 export const MAX_AMOUNT = 5000.0;
 export const AMOUNT_STEP = 5.0;
+export const shipping = 7.99;
+export const grandTotal = (totalPrice: number) => {
+  return (totalPrice + shipping).toFixed(2); // Parse to float
+};
