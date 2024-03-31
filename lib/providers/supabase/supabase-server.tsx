@@ -1,4 +1,5 @@
-//import { Database } from "@/types/Database";
+'use server'
+import { Database } from "@/types/Database";
 import {
   createRouteHandlerClient,
   createServerComponentClient,
@@ -18,7 +19,6 @@ export const supabaseRouteHandler = cache(() => {
 });
 
 export const createFormType = async (newFormType: string) => {
-  "use server";
   const supabase = createServerSupabaseClient();
 
   const { data, error } = await supabaseAdmin
@@ -33,7 +33,6 @@ export const createFormType = async (newFormType: string) => {
 };
 
 export async function getSession() {
-  "use server";
   const supabase = createServerSupabaseClient();
   try {
     const {
@@ -47,7 +46,6 @@ export async function getSession() {
 }
 
 export async function getUserDetails() {
-  "use server";
 
   const supabase = createServerSupabaseClient();
   try {
@@ -63,7 +61,6 @@ export async function getUserDetails() {
 }
 
 export async function getSubscription() {
-  "use server";
 
   const supabase = createServerSupabaseClient();
   try {
@@ -81,7 +78,6 @@ export async function getSubscription() {
 }
 
 export const getActiveProductsWithPrices = async () => {
-  "use server";
 
   const supabase = createServerSupabaseClient();
   const { data, error } = await supabase

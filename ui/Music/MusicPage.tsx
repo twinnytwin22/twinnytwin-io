@@ -13,13 +13,15 @@ function MusicPage({ music }: any) {
     setSong(song);
   };
   return (
-    <div className=" mx-auto p-8 max-w-5xl gap-8 justify-around items-center font-owners">
+    <div className=" mx-auto p-8 max-w-7xl gap-8 justify-around items-center font-owners">
       <div className="mt-8">
+      <h2 className='font-owners text-3xl font-extrabold uppercase pb-2'>Music</h2>
+
         <h1 className="font-bold text-lg">Singles</h1>
         <div className="flex items-center">
           <FaCaretLeft className="block md:hidden text-5xl pr-2" />
 
-          <div className="flex md:grid md:grid-cols-3 md:justify-items-center w-full items-center gap-8 overflow-x-auto space-y-2">
+          <div className="flex md:grid md:grid-cols-4 md:justify-items-center w-full items-center gap-8 overflow-x-auto space-y-2">
             {music.map((item: any) => {
               const image = getSanityImage(item.coverImage);
               if (item.type === "single")
@@ -52,7 +54,7 @@ function MusicPage({ music }: any) {
           <h1 className="font-bold text-lg">Remixes</h1>
           <div className="flex items-center">
             <FaCaretLeft className="block md:hidden text-5xl pr-2" />
-            <div className="flex md:grid md:grid-cols-3 md:justify-items-center items-center w-full gap-8 overflow-x-auto space-y-2">
+            <div className="flex md:grid md:grid-cols-4 md:justify-items-center items-center w-full gap-8 overflow-x-auto space-y-2">
               {music.map((item: any) => {
                 const image = getSanityImage(item.coverImage);
 

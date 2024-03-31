@@ -9,7 +9,7 @@ async function page() {
 
     return (
 
-        <main className='relative max-w-7xl w-full py-24 mx-auto'>
+        <main className='relative max-w-7xl w-full py-28 mx-auto p-8'>
                 <h2 className='font-owners text-3xl font-extrabold uppercase pb-2'>Shop</h2>
                 <div className='relative max-w-6xl w-full mx-auto'>
     

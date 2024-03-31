@@ -27,6 +27,7 @@ async function About() {
   //console.log(songs)
   return (
    <div className="w-full mx-auto   mb-24  pt-12">
+
     <MusicPage music={songs}/>
    </div>
   );

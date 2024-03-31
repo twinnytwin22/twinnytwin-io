@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { useHandleOutsideClick } from '@/utils/hooks/handleOutsideClick'
 import Link from 'next/link'
-import { useCommerceContext } from '@/context/CommerceConext'
 import { FaCartPlus } from 'react-icons/fa6'
+import { useShoppingCart } from 'use-shopping-cart'
 function Navbar() {
 const [isOpen, setIsOpen] = useState(false)
   useHandleOutsideClick(isOpen, setIsOpen, 'mobile-menu')
-const {cartItems} = useCommerceContext()
+const {cartDetails} = useShoppingCart()
+
+const cartEntries = Object.values(cartDetails ?? {}).map((entry) => entry)
     return (
     <header className='fixed w-full z-30 font-owners font-semibold uppercase'>
     <nav className="bg-white border-zinc-200 px-4 lg:px-6 py-2.5 dark:bg-black border-b dark:border-zinc-900 relative ">
@@ -60,7 +62,9 @@ const {cartItems} = useCommerceContext()
             </div>}
         </div>
         <div className='absolute right-24 top-1/2 text-2xl -mt-2 flex items-center space-x-2'> <Link href="/shop/cart"> <FaCartPlus /></Link>
-       <p className='text-sm bg-red-600 rounded-full p-1 px-2'> {cartItems.length}</p>
+      
+      
+       <p className='text-sm bg-red-600 rounded-full p-1 px-2'> {cartEntries.length}</p>
         </div>
        
 

@@ -1,3 +1,4 @@
+import { BuyNowButton } from "@/context/CommerceActions";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import { getProductbyId, getProducts } from "@/utils/db";
 import Image from "next/image";
@@ -11,8 +12,8 @@ async function Page({ params }: { params: { id: string } }) {
   console.log(product);
 
   return (
-    <main className="flex min-h-screen flex-col items-center py-24 p-8 md:p-24">
-      <div className="bg-black max-w-7xl w-full relative p-8">
+    <main className="flex min-h-screen flex-col items-center top-32 relative w-full mx-auto ">
+      <div className="bg-black max-w-7xl w-full relative p-8  mx-auto">
         <div className="flex flex-col md:flex-row -mx-4">
           <div className="md:flex-1 px-4 md:border-r border-zinc-800">
             <div className="md:h-[460px] rounded-lg b mb-4">
@@ -29,9 +30,7 @@ async function Page({ params }: { params: { id: string } }) {
           <AddToCart product={product}/>
               </div>
               <div className="w-1/2 px-2">
-                <button className="w-full border border-zinc-800  text-white py-2 px-4 rounded font-bold hover:bg-zinc-900">
-                  Buy Now
-                </button>
+            <BuyNowButton product={product}/>
               </div>
             </div>
           </div>

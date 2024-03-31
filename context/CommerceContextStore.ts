@@ -1,10 +1,37 @@
 import { create} from 'zustand';
 
+
+export interface simplifiedProduct {
+  _id: string;
+  primaryImage: string;
+  //imageUrl2: string;
+  price: number;
+  brand: string;
+  slug: string;
+  name: string;
+  categoryName: string;
+}
+
+export interface fullProduct {
+  _id: string;
+  primaryImage: string;
+  images: any[];
+  price: number;
+  price_id: string;
+  brand: string;
+  //slug: string;
+  name: string;
+ // condition: string;
+  description: string;
+  //categoryName: string;
+  tags: string[];
+}
+
 export interface Product {
     _id: string;
     name: string;
     price: number;
-    quantity?: number;
+   //q quantity?: number;
   }
   
   export interface CommerceState {
