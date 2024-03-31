@@ -16,6 +16,9 @@ const relevantEvents = new Set([
   "customer.subscription.created",
   "customer.subscription.updated",
   "customer.subscription.deleted",
+  "checkout.session.completed",
+  "payment_intent.succeeded",
+  "payment_intent.payment_failed",
 ]);
 
 export async function POST(req: Request) {
@@ -24,7 +27,7 @@ export async function POST(req: Request) {
   }
 
   const body = await req.text();
-  const sig = headers().get("Stripe-Signature") as string;
+  const sig = headers().get("Stripe-Signature" || "stripe-signature") as string;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!sig || !webhookSecret) {
@@ -41,6 +44,8 @@ export async function POST(req: Request) {
   }
 
   if (relevantEvents.has(event.type)) {
+    let data;
+
     try {
       switch (event.type) {
         case "product.created":
@@ -58,7 +63,7 @@ export async function POST(req: Request) {
           await manageSubscriptionStatusChange(
             subscription.id,
             subscription.customer as string,
-            event.type === "customer.subscription.created",
+            event.type === "customer.subscription.created"
           );
           break;
         case "checkout.session.completed":
@@ -68,9 +73,21 @@ export async function POST(req: Request) {
             await manageSubscriptionStatusChange(
               subscriptionId as string,
               checkoutSession.customer as string,
-              true,
+              true
             );
           }
+          break;
+        case "checkout.session.completed":
+          data = event.data.object as Stripe.Checkout.Session;
+          console.log(`💰 CheckoutSession status: ${data.payment_status}`);
+          break;
+        case "payment_intent.payment_failed":
+          data = event.data.object as Stripe.PaymentIntent;
+          console.log(`❌ Payment failed: ${data.last_payment_error?.message}`);
+          break;
+        case "payment_intent.succeeded":
+          data = event.data.object as Stripe.PaymentIntent;
+          console.log(`💰 PaymentIntent status: ${data.status}`);
           break;
         default:
           throw new Error("Unhandled relevant event!");
@@ -81,7 +98,7 @@ export async function POST(req: Request) {
         "Webhook handler failed. View your nextjs function logs.",
         {
           status: 400,
-        },
+        }
       );
     }
   }
