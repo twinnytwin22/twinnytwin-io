@@ -3,6 +3,7 @@ import { validateCartItems } from 'use-shopping-cart/utilities'
 import { stripe } from "@/lib/providers/stripe/stripe";
 import { headers } from "next/headers";
 import { getProducts } from "@/utils/db";
+export const dynamic = 'force-dynamic'
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",

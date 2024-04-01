@@ -2,7 +2,7 @@
 import { useShoppingCart, formatCurrencyString } from 'use-shopping-cart'
 
 export const BuyNowButton = ({product}: any) => {
-    const { redirectToCheckout, checkoutSingleItem } = useShoppingCart()
+    const { checkoutSingleItem } = useShoppingCart()
 
 
 

@@ -1,7 +1,5 @@
 import { Product } from "@/context/CommerceContextStore";
 import { validateRequest } from "@/lib/hooks/validateRequest";
-import { imageBuilder } from "@/lib/providers/sanity";
-import { supabaseApi } from "@/lib/providers/supabase/routerHandler";
 import { getProducts } from "@/utils/db";
 import { NextResponse } from "next/server";
 
@@ -38,15 +36,15 @@ export async function POST(req: Request) {
 
         };
 
-        const { data, error } = await supabaseApi
-          .from("courses")
-          .upsert([productData], { onConflict: "_id" }) // Specify the conflict resolution strategy here
-          .select();
+        // const { data, error } = await supabaseApi
+        //   .from("courses")
+        //   .upsert([productData], { onConflict: "_id" }) // Specify the conflict resolution strategy here
+        //   .select();
 
-        console.log(data);
-        if (error) {
-          console.error("Error syncing data to Supabase:", error);
-        }
+        // console.log(data);
+        // if (error) {
+        //   console.error("Error syncing data to Supabase:", error);
+        // }
       });
 
       // Wait for all upserts to finish
