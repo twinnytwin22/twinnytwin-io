@@ -39,15 +39,14 @@ async function Page({ params }: { params: { id: string } }) {
               {product?.name}
             </h2>
             <p className="text-zinc-300 text-sm mb-4 hidden">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-              ante justo. Integer euismod libero id mauris malesuada tincidunt.
+            {product.description || ""}
             </p>
             <div className="flex mb-4">
               <div className="mr-4">
                 <span className="text-zinc-300 font-owners font-bold">
                   Price:
                 </span>
-                <span className="text-zinc-300"> $29.99</span>
+                <span className="text-zinc-300"> ${product.price}</span>
               </div>
               <div>
                 <span className="font-owners font-bold text-zinc-300">
