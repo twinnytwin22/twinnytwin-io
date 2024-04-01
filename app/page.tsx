@@ -53,20 +53,16 @@ export default async function Home() {
           </video>
           <video
             loop
-            
+            src="https://crib-network.s3.us-west-1.amazonaws.com/twinnytwin/twin-intro-long.mp4"
             muted
             autoPlay
-           // controls={false}
-            className="object-cover relative lg:-translate-y-0 xl:-translate-y-10 block md:hidden"
+            playsInline
+            className="object-cover relative lg:-translate-y-0 xl:-translate-y-10 block md:hidden select-none"
             style={{
               objectFit: "cover",
+              pointerEvents: 'none'
             }}
-          >
-            <source
-              src="https://crib-network.s3.us-west-1.amazonaws.com/twinnytwin/twin-intro-long.mp4"
-              type="video/mp4"
-            />
-          </video>
+         />
           <div className="absolute z-10 flex w-full h-full mx-auto top-0 bottom-0 md:-mt-4 md:-ml-4 place-items-center md:place-items-end place-content-center md:place-content-end">
             <ConnectBox latestRelease={sortedSongs[0]} />
           </div>
