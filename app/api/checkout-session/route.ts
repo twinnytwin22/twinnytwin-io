@@ -31,7 +31,7 @@ export async function POST(
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
       shipping_options: [{
-        shipping_rate: 'shr_1P0fIIDhPOOQLr7HK08n5zya'
+        shipping_rate: '{{shr_1P0fIIDhPOOQLr7HK08n5zya}}'
       }]
     });
     return NextResponse.json(
