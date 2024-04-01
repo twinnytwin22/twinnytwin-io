@@ -6,6 +6,7 @@ import SocialRow from "ui/social-row/SocialRow";
 import { getSongs, getLinks, getProducts, getShows } from "@/utils/db";
 import { Suspense } from "react";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
+import Link from "next/link";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   const [songs, shows, products] = await Promise.all([
@@ -105,6 +106,7 @@ const ConnectBox = ({ latestRelease }: any) => {
           Twinny Twin, {latestRelease.additionalArtists}
         </p>
       </div>
+      <Link href={'/music/'+latestRelease._id}>
       <Image
         src={getSanityImage(latestRelease.coverImage)}
         className="mx-auto"
@@ -112,7 +114,7 @@ const ConnectBox = ({ latestRelease }: any) => {
         height={200}
         width={200}
       />
-
+</Link>
       <div className="text-center font-owners font-extrabold text-lg">
         CONNECT WITH ME
       </div>
