@@ -12,8 +12,8 @@ export const CartProviderWrapper = ({
     <CartProviders
       mode="payment"
       cartMode="client-only"
-      stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string}
-      successUrl="http://localhost:3000"
+      stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE as string}
+      successUrl="https://twinnytwin.io"
       cancelUrl="https://twitter.com/djtwinnytwin"
       currency="USD"
       allowedCountries={["US", "GB", "CA"]}
