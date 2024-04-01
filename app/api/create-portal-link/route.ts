@@ -1,13 +1,15 @@
 import { getURL } from "@/lib/hooks/helpers";
 import { stripe } from "@/lib/providers/stripe/stripe";
-import { createOrRetrieveCustomer, supabaseAdmin } from "@/lib/providers/supabase/supabase-lib-admin";
+import {
+  createOrRetrieveCustomer,
+  supabaseAdmin,
+} from "@/lib/providers/supabase/supabase-lib-admin";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   if (req.method === "POST") {
     try {
-
       const {
         data: { user },
       } = await supabaseAdmin.auth.getUser();

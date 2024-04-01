@@ -46,7 +46,6 @@ export async function middleware(req: NextRequest, event: NextFetchEvent) {
   //   `frame-src 'self' https://checkout.stripe.com; ` +
   //   `object-src 'none'`;
 
-
   // const message = {
   //   country: req.geo?.country,
   //   city: req.geo?.city,
@@ -59,7 +58,7 @@ export async function middleware(req: NextRequest, event: NextFetchEvent) {
   // };
 
   //
- // res.cookies.set("Set-Cookie", "SameSite=None; Secure");
+  // res.cookies.set("Set-Cookie", "SameSite=None; Secure");
 
   // const topic = "words";
 

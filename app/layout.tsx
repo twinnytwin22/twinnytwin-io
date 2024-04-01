@@ -16,15 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-            <body>
+      <body>
+        <Providers>
+          <Navbar />
+          <LinkModal />
 
-      <Providers>
-        <Navbar/>
-        <LinkModal/>
-
-        {children}
+          {children}
         </Providers>
-        </body>
+      </body>
     </html>
   );
 }

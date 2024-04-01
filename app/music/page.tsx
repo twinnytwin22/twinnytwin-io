@@ -23,13 +23,12 @@ const music = [
 ];
 
 async function About() {
-  const songs = await getSongs()
+  const songs = await getSongs();
   //console.log(songs)
   return (
-   <div className="w-full mx-auto   mb-24  pt-12">
-
-    <MusicPage music={songs}/>
-   </div>
+    <div className="w-full mx-auto   mb-24  pt-12">
+      <MusicPage music={songs} />
+    </div>
   );
 }
 

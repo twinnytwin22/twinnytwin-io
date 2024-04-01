@@ -24,7 +24,7 @@ export async function POST(req: Request) {
       }
 
       // Fetch course data from Sanity CMS
-      const sanityCourses = ['']
+      const sanityCourses = [""];
 
       // Transform and upsert all courses into Supabase
       const upsertPromises = sanityCourses.map(async (sanityCourse: any) => {

@@ -15,9 +15,6 @@ import {
   CartEntry as ICartEntry,
 } from "use-shopping-cart/core";
 
-
-
-
 function CartEntry({
   entry,
   removeItem,

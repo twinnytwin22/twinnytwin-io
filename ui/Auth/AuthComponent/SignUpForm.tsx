@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import GoogleAuthButton from "../GoogleAuthButton";
-export const SignUpForm = ({ logo }:any) => {
+export const SignUpForm = ({ logo }: any) => {
   // const pathname = usePathname()
   const params = useSearchParams().toString();
   // console.log(params)

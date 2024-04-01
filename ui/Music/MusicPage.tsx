@@ -15,7 +15,9 @@ function MusicPage({ music }: any) {
   return (
     <div className=" mx-auto p-8 max-w-7xl gap-8 justify-around items-center font-owners">
       <div className="mt-8">
-      <h2 className='font-owners text-3xl font-extrabold uppercase pb-2'>Music</h2>
+        <h2 className="font-owners text-3xl font-extrabold uppercase pb-2">
+          Music
+        </h2>
 
         <h1 className="font-bold text-lg">Singles</h1>
         <div className="flex items-center">

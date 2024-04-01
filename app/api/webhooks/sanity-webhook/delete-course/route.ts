@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       }
 
       // Fetch course data from Sanity CMS
-      const sanityCourses = ['']
+      const sanityCourses = [""];
 
       // Fetch existing course IDs from Supabase
       const { data: supabaseCourses, error: supabaseError } = await supabaseApi

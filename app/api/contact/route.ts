@@ -15,20 +15,18 @@ async function sendEmail(msg: any) {
   }
 }
 
-
 export async function POST(req: Request) {
   if (req.method !== "POST") {
     return NextResponse.json("error: Method Not Allowed", { status: 405 });
   }
   if (req.method === "POST") {
-    const { subject, email, message, full_name } =
-      await req.json();
+    const { subject, email, message, full_name } = await req.json();
     const updates = {
       subject,
       email,
       message,
       full_name,
-///form_type: "Inquiry",
+      ///form_type: "Inquiry",
     };
     if (!email) {
       return NextResponse.json("error: Email is required");
@@ -37,7 +35,7 @@ export async function POST(req: Request) {
     const msg = {
       to: email,
       cc: process.env.FROM_EMAIL as string,
-     // bc: "info@cribnetwork.io",
+      // bc: "info@cribnetwork.io",
       from: process.env.FROM_EMAIL as string,
       subject: "We've received your message!",
       text: "New Message from CRIB",
@@ -184,7 +182,7 @@ export async function POST(req: Request) {
 
     const [emailSent] = await Promise.all([
       sendEmail(msg),
-     // insertData(updates),
+      // insertData(updates),
     ]);
 
     if (emailSent) {

@@ -1,7 +1,6 @@
 import { supabaseAdmin } from "./supabase-lib-admin";
 
 export async function getSession() {
-
   try {
     const {
       data: { session },
@@ -14,8 +13,6 @@ export async function getSession() {
 }
 
 export async function getUserDetails() {
-
-
   try {
     const { data: userDetails } = await supabaseAdmin
       .from("users")
@@ -29,7 +26,6 @@ export async function getUserDetails() {
 }
 
 export async function getSubscription() {
-
   try {
     const { data: subscription } = await supabaseAdmin
       .from("subscriptions")
@@ -45,7 +41,6 @@ export async function getSubscription() {
 }
 
 export const getActiveProductsWithPrices = async () => {
-
   const { data, error } = await supabaseAdmin
     .from("products")
     .select("*, prices(*)")

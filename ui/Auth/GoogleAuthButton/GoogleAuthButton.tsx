@@ -11,10 +11,10 @@ function GoogleAuthButton() {
   const { signInWithGoogle } = useAuthProvider();
   const handleSignInWithGoogle = async () => {
     await supabaseAuth.auth.signInWithOAuth({
-      provider: 'google',
+      provider: "google",
       options: {
-        redirectTo: getURL()
-      }
+        redirectTo: getURL(),
+      },
     });
     router.refresh();
   };

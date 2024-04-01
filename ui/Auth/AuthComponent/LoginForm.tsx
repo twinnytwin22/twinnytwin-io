@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import GoogleAuthButton from "../GoogleAuthButton";
-export const LoginForm = ({ logo }:any) => {
+export const LoginForm = ({ logo }: any) => {
   return (
     <section className="bg-zinc-50 dark:bg-zinc-950 w-screen ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

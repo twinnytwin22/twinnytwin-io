@@ -89,16 +89,16 @@ function LinkPage({ links }: any) {
         </Link>
       </div>
       <div className="mt-4">
-      <iframe
-      className="max-w-sm mx-auto"
-        style={{ borderRadius: "12px", }}
-        src="https://open.spotify.com/embed/artist/2uCDeXISayt3NOEaPq2EVs?utm_source=generator"
-        width="90%"
-        height="352"
-        allowFullScreen
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-      ></iframe>
+        <iframe
+          className="max-w-sm mx-auto"
+          style={{ borderRadius: "12px" }}
+          src="https://open.spotify.com/embed/artist/2uCDeXISayt3NOEaPq2EVs?utm_source=generator"
+          width="90%"
+          height="352"
+          allowFullScreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
   );

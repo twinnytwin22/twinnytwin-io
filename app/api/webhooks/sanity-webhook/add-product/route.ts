@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 
 export const revalidate = 0;
 
-
 export async function POST(req: Request) {
   if (req.method !== "POST") {
     return new Response("error: Method Not Allowed", { status: 405 });
@@ -19,7 +18,7 @@ export async function POST(req: Request) {
       }
 
       // Fetch course data from Sanity CMS
-      const sanityProducts =  await getProducts()
+      const sanityProducts = await getProducts();
 
       // Transform and upsert all courses into Supabase
       const upsertPromises = sanityProducts.map(async (sanityProduct: any) => {
@@ -27,13 +26,11 @@ export async function POST(req: Request) {
 
         // Extract titles from lessons and categories arrays
 
-
         const productData: Product = {
           _id: _id, // Use the _id from Sanity as the id in Supabase
           name: title || "",
-          price: price, 
+          price: price,
           //quantity: 1
-
         };
 
         // const { data, error } = await supabaseApi

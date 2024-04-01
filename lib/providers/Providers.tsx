@@ -9,7 +9,7 @@ const queryClient = new QueryClient();
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
-            {/* <AuthContextProvider> */}
+      {/* <AuthContextProvider> */}
 
       <CartProviderWrapper>
         <Suspense>
@@ -18,11 +18,11 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
             attribute="class"
             defaultTheme="dark"
           > */}
-            {children}
+          {children}
           {/* </ThemeProvider> */}
         </Suspense>
-        </CartProviderWrapper>
-        {/* </AuthContextProvider> */}
+      </CartProviderWrapper>
+      {/* </AuthContextProvider> */}
     </QueryClientProvider>
   );
 };

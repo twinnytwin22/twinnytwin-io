@@ -1,16 +1,16 @@
-import {create} from 'zustand'
+import { create } from "zustand";
 
 interface ISong {
-    title: string
-    type: string
-    _id?: string
-    coverImage: string
+  title: string;
+  type: string;
+  _id?: string;
+  coverImage: string;
 }
 
 interface ILinkStore {
-song: any
+  song: any;
 }
 
 export const useLinkStore = create<ILinkStore>((set) => ({
-song: null
-}))
+  song: null,
+}));

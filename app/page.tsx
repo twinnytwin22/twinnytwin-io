@@ -8,14 +8,18 @@ import { Suspense } from "react";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 export const dynamic = "force-dynamic";
 export default async function Home() {
-  const [songs, shows, products] = await Promise.all([getSongs(), getShows(), getProducts()]);
+  const [songs, shows, products] = await Promise.all([
+    getSongs(),
+    getShows(),
+    getProducts(),
+  ]);
   const sortedSongs = songs.sort((a: any, b: any) => {
     // Assuming releaseDate is a Date object or can be parsed to one
     const dateA = new Date(a.releaseDate).getTime();
     const dateB = new Date(b.releaseDate).getTime();
-    
+
     return dateB - dateA;
-});
+  });
   return (
     <main className="flex min-h-screen flex-col items-center py-24 p-8 md:p-24">
       <div className="bg-zinc-950 max-w-7xl w-full relative">
@@ -32,7 +36,6 @@ export default async function Home() {
             }}
           /> */}
           <video
-          
             loop
             muted
             autoPlay={true}
@@ -88,22 +91,21 @@ const HRLine = () => {
   );
 };
 
-const ConnectBox = ({latestRelease}: any) => {
+const ConnectBox = ({ latestRelease }: any) => {
   return (
     <div className="relative space-y-4 w-72 bg-black bg-opacity-60 rounded-lg p-8 border border-zinc-800 shadow-sm shadow-zinc-900">
       <div>
-           <div className="text-center font-owners font-extrabold text-lg">
-        Latest Release
-      </div>
-      <p className="text-center font-owners text-base ">
-        {latestRelease.title}
-      </p>
-      <p className="text-xs font-owners text-center">
-    Twinny Twin, {latestRelease.additionalArtists}
-      </p>
+        <div className="text-center font-owners font-extrabold text-lg">
+          Latest Release
+        </div>
+        <p className="text-center font-owners text-base ">
+          {latestRelease.title}
+        </p>
+        <p className="text-xs font-owners text-center">
+          Twinny Twin, {latestRelease.additionalArtists}
+        </p>
       </div>
       <Image
-
         src={getSanityImage(latestRelease.coverImage)}
         className="mx-auto"
         alt="latest-release"
