@@ -53,9 +53,10 @@ export default async function Home() {
           </video>
           <video
             loop
+            
             muted
-            autoPlay={true}
-            controls={false}
+            autoPlay
+           // controls={false}
             className="object-cover relative lg:-translate-y-0 xl:-translate-y-10 block md:hidden"
             style={{
               objectFit: "cover",
