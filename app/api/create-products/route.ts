@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
     );
 
     return (
-      NextResponse.json({ success: true, status: 200, data: addProducts }),{ headers: corsHeaders }
+      NextResponse.json({ success: true, status: 200, data: addProducts })
     );
   } catch (err) {
     console.error(err);
