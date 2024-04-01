@@ -52,17 +52,16 @@ export async function POST(req: Request) {
     );
 
     return (
-      NextResponse.json({ success: true, data: addProducts }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
+      NextResponse.json({ success: true, status: 200, data: addProducts }),
+      { headers: corsHeaders }
+
     );
   } catch (err) {
     console.error(err);
     return NextResponse.json({
       error: `Error creating - ${err}  `,
       status: 500,
-    });
+    }),{ headers: corsHeaders }
+    ;
   }
 }
