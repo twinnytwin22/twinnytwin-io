@@ -52,7 +52,7 @@ function CollectionCard({ collection, i }: any) {
             {shortDescription}
           </p>
           <div className="mx-auto">
-            {collection?.tags?.slice(0,3).map((tag: any) => (
+            {collection?.tags?.slice(0, 3).map((tag: any) => (
               <span
                 key={tag}
                 className="  text-[8px] md:text-[10px] lg:text-xs font-semibold mr-2 px-2.5 py-0.5 rounded bg-zinc-200 text-zinc-900"

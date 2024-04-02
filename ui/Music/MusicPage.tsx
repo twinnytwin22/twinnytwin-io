@@ -38,7 +38,7 @@ function MusicPage({ music }: any) {
                       height={250}
                     />
                     <div
-                      onClick={() => handleOpenLinkTree(item)}
+                      onClick={() => router.push(`music/${item._id}`)}
                       className="absolute bottom-12 right-4 bg-red-600  rounded-full p-4 text-lg hover:scale-110 ease-in-out duration-500"
                     >
                       <FaPlay />
@@ -73,7 +73,7 @@ function MusicPage({ music }: any) {
                       />
 
                       <div
-                        onClick={() => handleOpenLinkTree(item)}
+                        onClick={() => router.push(`music/${item._id}`)}
                         className="absolute bottom-12 right-4 bg-red-600 rounded-full p-4 text-lg"
                       >
                         <FaPlay />

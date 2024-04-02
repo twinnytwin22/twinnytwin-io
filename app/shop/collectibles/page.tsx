@@ -11,8 +11,8 @@ async function Page() {
       <h2 className="font-owners text-3xl font-extrabold uppercase pb-2">
         Collectibles
       </h2>
-        <AllCollections collections={collectibles} />
- </main>
+      <AllCollections collections={collectibles} />
+    </main>
   );
 }
 

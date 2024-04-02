@@ -45,7 +45,6 @@ export default function AllCollections({ collections }: any) {
   return (
     <section className="bg-black w-full">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
- 
         <div className="mx-10 md:mx-auto flex justify-center md:justify-between items-center mb-6">
           <div className="inline-flex rounded-md shadow-sm">
             <button

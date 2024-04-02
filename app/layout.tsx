@@ -23,8 +23,8 @@ export default function RootLayout({
           <LinkModal />
 
           {children}
-          <br/>
-          <Footer/>
+          <br />
+          <Footer />
         </Providers>
       </body>
     </html>

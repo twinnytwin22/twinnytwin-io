@@ -44,7 +44,7 @@ function CartEntry({
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-dark-100">
-      <DecrementItem id={entry.id}/>
+              <DecrementItem id={entry.id} />
               <input
                 readOnly
                 className="h-8 w-8 border bg-zinc-900 text-center text-xs font-bold outline-none"
@@ -52,7 +52,7 @@ function CartEntry({
                 value={entry.quantity}
                 min="1"
               />
-       <IncrementItem id={entry.id}/>
+              <IncrementItem id={entry.id} />
             </div>
             <div className="flex items-center space-x-4">
               <p className="text-sm">{entry.price * entry.quantity}</p>
@@ -90,7 +90,7 @@ function Cart() {
   return (
     <main className="relative max-w-7xl w-full py-28 mx-auto p-8">
       <h2 className="font-owners text-3xl font-extrabold uppercase pb-2">
-       Cart Items
+        Cart Items
       </h2>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">

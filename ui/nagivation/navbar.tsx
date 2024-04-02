@@ -107,16 +107,15 @@ function Navbar() {
                   </li>
                 ))}
                 <li>
-
-                  <Link href="/shop/cart" className="flex space-x-2 items-center py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0">
-                    Cart:      
-            {" "}
-            <FaCartPlus />
-         
-          <p className="text-sm bg-red-600 rounded-full p-1 px-2">
-            {" "}
-            {cartEntries.length}
-          </p>
+                  <Link
+                    href="/shop/cart"
+                    className="flex space-x-2 items-center py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0"
+                  >
+                    Cart: <FaCartPlus />
+                    <p className="text-sm bg-red-600 rounded-full p-1 px-2">
+                      {" "}
+                      {cartEntries.length}
+                    </p>
                   </Link>
                 </li>
               </ul>
@@ -124,18 +123,18 @@ function Navbar() {
           )}
         </div>
         {!isOpen && (
-
-        <div className="absolute right-24 top-1/2 text-2xl -mt-3 md:flex items-center space-x-2 hidden">
-          {" "}
-          <Link href="/shop/cart">
+          <div className="absolute right-24 top-1/2 text-2xl -mt-3 md:flex items-center space-x-2 hidden">
             {" "}
-            <FaCartPlus />
-          </Link>
-          <p className="text-sm bg-red-600 rounded-full p-1 px-2">
-            {" "}
-            {cartEntries.length}
-          </p>
-        </div>)}
+            <Link href="/shop/cart">
+              {" "}
+              <FaCartPlus />
+            </Link>
+            <p className="text-sm bg-red-600 rounded-full p-1 px-2">
+              {" "}
+              {cartEntries.length}
+            </p>
+          </div>
+        )}
       </nav>
     </header>
   );
