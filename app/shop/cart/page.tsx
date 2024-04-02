@@ -4,6 +4,8 @@ import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import Image from "next/image";
 import React from "react";
 import CheckOutButton from "ui/commerce/Components/Buttons/CheckOutButton";
+import DecrementItem from "ui/commerce/Components/Buttons/DecrementItem";
+import IncrementItem from "ui/commerce/Components/Buttons/IncrementItem";
 import {
   useShoppingCart,
   DebugCart,
@@ -42,10 +44,7 @@ function CartEntry({
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-dark-100">
-              <span className="cursor-pointer rounded-l bg-zinc-950 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                {" "}
-                -{" "}
-              </span>
+      <DecrementItem/>
               <input
                 readOnly
                 className="h-8 w-8 border bg-zinc-900 text-center text-xs font-bold outline-none"
@@ -53,13 +52,10 @@ function CartEntry({
                 value={entry.quantity}
                 min="1"
               />
-              <span className="cursor-pointer rounded-r bg-zinc-950 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                {" "}
-                +{" "}
-              </span>
+       <IncrementItem/>
             </div>
             <div className="flex items-center space-x-4">
-              <p className="text-sm">{entry.price}</p>
+              <p className="text-sm">{entry.price * entry.quantity}</p>
               <svg
                 onClick={() => removeItem(entry.id)}
                 xmlns="http://www.w3.org/2000/svg"
