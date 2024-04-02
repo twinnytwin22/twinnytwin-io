@@ -41,7 +41,7 @@ function CartEntry({
             <p className="mt-1 text-xs text-zinc-200">size</p>
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-            <div className="flex items-center border-gray-100">
+            <div className="flex items-center border-dark-100">
               <span className="cursor-pointer rounded-l bg-zinc-950 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
                 {" "}
                 -{" "}
