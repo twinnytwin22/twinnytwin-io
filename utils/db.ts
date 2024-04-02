@@ -14,8 +14,8 @@ export const getSongs = async () => {
   return res;
 };
 
-const getCollectibles = async () => {
-  const query = `%5B_type+%3D%3D+%22collection%22%5D%0A%0A`;
+export const getCollectibles = async () => {
+  const query = `*%5B_type+%3D%3D+%22collection%22%5D`;
   const res = await fetchSanity(query);
   return res;
 };

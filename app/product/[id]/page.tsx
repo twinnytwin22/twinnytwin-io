@@ -39,7 +39,7 @@ async function Page({ params }: { params: { id: string } }) {
               {product?.name}
             </h2>
             <p className="text-zinc-300 text-sm mb-4 hidden">
-            {product.description || ""}
+              {product.description || ""}
             </p>
             <div className="flex mb-4">
               <div className="mr-4">

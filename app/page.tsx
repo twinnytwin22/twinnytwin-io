@@ -60,9 +60,9 @@ export default async function Home() {
             className="object-cover relative lg:-translate-y-0 xl:-translate-y-10 block md:hidden select-none"
             style={{
               objectFit: "cover",
-              pointerEvents: 'none'
+              pointerEvents: "none",
             }}
-         />
+          />
           <div className="absolute z-10 flex w-full h-full mx-auto top-0 bottom-0 md:-mt-4 md:-ml-4 place-items-center md:place-items-end place-content-center md:place-content-end">
             <ConnectBox latestRelease={sortedSongs[0]} />
           </div>
@@ -103,15 +103,15 @@ const ConnectBox = ({ latestRelease }: any) => {
           Twinny Twin, {latestRelease.additionalArtists}
         </p>
       </div>
-      <Link href={'/music/'+latestRelease._id}>
-      <Image
-        src={getSanityImage(latestRelease.coverImage)}
-        className="mx-auto"
-        alt="latest-release"
-        height={200}
-        width={200}
-      />
-</Link>
+      <Link href={"/music/" + latestRelease._id}>
+        <Image
+          src={getSanityImage(latestRelease.coverImage)}
+          className="mx-auto"
+          alt="latest-release"
+          height={200}
+          width={200}
+        />
+      </Link>
       <div className="text-center font-owners font-extrabold text-lg">
         CONNECT WITH ME
       </div>

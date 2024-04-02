@@ -1,16 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function MusicPageLayout({
-    children
-} : {
-    children: React.ReactNode
-}
-    ) {
-  return (
-    <div className='overflow-x-hidden'>
-        {children}
-        </div>
-  )
+function MusicPageLayout({ children }: { children: React.ReactNode }) {
+  return <div className="overflow-x-hidden">{children}</div>;
 }
 
-export default MusicPageLayout
+export default MusicPageLayout;

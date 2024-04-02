@@ -21,7 +21,6 @@ export const CartProviderWrapper = ({
       shouldPersist={true}
     >
       <Suspense>
-    
         {children}
         {/* </ThemeProvider> */}
       </Suspense>

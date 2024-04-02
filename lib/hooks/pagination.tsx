@@ -22,20 +22,11 @@ export default function Pagination(props: PaginationProps) {
         <div className="font-semibold  text-white mr-2 hidden">
           {showingIndex}
         </div>
-        <div className="text-sm  text-zinc-400 mr-2 hidden">
-          of
-        </div>
-        <div className="font-semibold  text-white mr-2">
-          {showingIndex}
-        </div>
+        <div className="text-sm  text-zinc-400 mr-2 hidden">of</div>
+        <div className="font-semibold  text-white mr-2">{showingIndex}</div>
         <div className="text-sm  text-zinc-400 mr-2">of</div>
-        <div className="font-semibold  text-white mr-2">
-          {totalItems}
-        </div>
-        <div className="text-sm  text-zinc-400 mr-2">
-          {" "}
-          results
-        </div>
+        <div className="font-semibold  text-white mr-2">{totalItems}</div>
+        <div className="text-sm  text-zinc-400 mr-2"> results</div>
       </div>
       <div className="inline-flex mt-2 xs:mt-0">
         <div className=" text-white">
@@ -59,9 +50,7 @@ export default function Pagination(props: PaginationProps) {
                 clipRule="evenodd"
               ></path>
             </svg>
-            <p className=" text-zinc-400  hidden md:block">
-              Previ
-            </p>
+            <p className=" text-zinc-400  hidden md:block">Previ</p>
           </button>
         </div>
         <div className=" text-white">
@@ -72,9 +61,7 @@ export default function Pagination(props: PaginationProps) {
             }}
             className="inline-flex items-center px-4 py-2 text-sm font-medium   border-0 border-l  rounded-r  bg-black border-zinc-800 text-zinc-400 hover:bg-zinc-950 hover:text-white"
           >
-            <p className=" text-zinc-400  hidden md:block">
-              Next
-            </p>
+            <p className=" text-zinc-400  hidden md:block">Next</p>
             <svg
               aria-hidden="true"
               className="w-5 h-5 ml-2 "

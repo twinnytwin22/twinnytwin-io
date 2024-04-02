@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import { useHandleOutsideClick } from "@/utils/hooks/handleOutsideClick";
@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <header className="fixed w-full z-30 font-owners font-semibold uppercase">
-      <nav className="bg-black border-zinc-200 px-4 lg:px-6 py-2.5 relative ">
+      <nav className="bg-black border-zinc-800 border-b px-4 lg:px-6 py-2.5 relative ">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link href="/" className="flex items-center">
             <Image
@@ -107,9 +107,7 @@ function Navbar() {
                   </li>
                 ))}
                 <li>
-                  <div
-                    className="block py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0"
-                  >
+                  <div className="block py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0">
                     Cart: {cartEntries.length}
                   </div>
                 </li>

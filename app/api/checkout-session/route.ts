@@ -30,10 +30,12 @@ export async function POST(
       line_items,
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
-      automatic_tax: {enabled: true},
-      shipping_options: [{
-        shipping_rate: 'shr_1P0fIIDhPOOQLr7HK08n5zya'
-      }]
+      automatic_tax: { enabled: true },
+      shipping_options: [
+        {
+          shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
+        },
+      ],
     });
     return NextResponse.json(
       { sessionId: checkoutSession.id, ok: true, status: 200 },

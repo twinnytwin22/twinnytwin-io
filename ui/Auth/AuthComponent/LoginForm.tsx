@@ -73,10 +73,7 @@ export const LoginForm = ({ logo }: any) => {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="remember"
-                      className=" text-zinc-300"
-                    >
+                    <label htmlFor="remember" className=" text-zinc-300">
                       Remember me
                     </label>
                   </div>

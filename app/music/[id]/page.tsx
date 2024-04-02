@@ -10,24 +10,23 @@ async function page({ params }: { params: { id: string } }) {
   const [songs, links] = await Promise.all([getSongs(), getLinks()]);
   const { id } = params;
   const song = songs.find((song: any) => song._id === id);
-  
+
   const props = {
     links,
     song,
   };
-  
+
   return (
     <>
       {song && (
-      <div className="relative h-screen overflow-x-hidden">
-        <div className="absolute inset-0 overflow-visible bg-black opacity-30 object-cover">
+        <div className="relative h-screen overflow-x-hidden">
+          <div className="absolute inset-0 overflow-visible bg-black opacity-30 object-cover">
             <Image
               alt={song?.title}
               src={getSanityImage(song.coverImage)}
               fill
               //layout="fill"
               className="object-cover scale-150 blur"
-
             />
           </div>
           <div className="bg-black bg-opacity-80 flex justify-center items-center px-4  ">

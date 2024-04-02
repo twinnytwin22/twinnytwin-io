@@ -13,7 +13,6 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 
       <CartProviderWrapper>
         <Suspense>
- 
           {children}
           {/* </ThemeProvider> */}
         </Suspense>

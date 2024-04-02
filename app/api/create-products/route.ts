@@ -16,9 +16,9 @@ export async function OPTIONS() {
 }
 
 export async function POST(req: NextRequest) {
-    if (req.method !== "POST") {
-        return NextResponse.json({error: "Method Not Allowed", status: 405 });
-      }
+  if (req.method !== "POST") {
+    return NextResponse.json({ error: "Method Not Allowed", status: 405 });
+  }
   try {
     const sanityProducts = await getProducts();
 
@@ -54,15 +54,12 @@ export async function POST(req: NextRequest) {
       }),
     );
 
-    return (
-      NextResponse.json({ success: true, status: 200, data: addProducts })
-    );
+    return NextResponse.json({ success: true, status: 200, data: addProducts });
   } catch (err) {
     console.error(err);
     return NextResponse.json({
       error: `Error creating - ${err}  `,
       status: 500,
-    })
-    ;
+    });
   }
 }
