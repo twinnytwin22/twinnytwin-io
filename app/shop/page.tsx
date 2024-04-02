@@ -29,7 +29,7 @@ async function page() {
                 src={getSanityImage(product.primaryImage)}
               />
               <p className="text-white text-center font-owners ">
-                {product.name}
+                {product.name} | ${product.price}
               </p>
             </Link>
           ))}

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/ui/nagivation/navbar";
 import Providers from "@/lib/providers/Providers";
 import LinkModal from "ui/Components/LinkModal";
+import Footer from "ui/nagivation/footer";
 
 export const metadata: Metadata = {
   title: "TwinnyTwin,io",
@@ -16,12 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="overflow-x-hidden">
         <Providers>
           <Navbar />
           <LinkModal />
 
           {children}
+          <Footer/>
         </Providers>
       </body>
     </html>

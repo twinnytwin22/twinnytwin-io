@@ -36,9 +36,9 @@ function Navbar() {
           </Link>
           <div className="flex items-center lg:order-2">
             <button
-              onClick={() => setIsOpen(true)}
+              onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-zinc-500 rounded-lg lg:hidden hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+              className="inline-flex mobile-menu items-center p-2 ml-1 text-sm text-zinc-500 rounded-lg lg:hidden hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-200"
               aria-controls="mobile-menu-2"
               aria-expanded="false"
             >
@@ -107,15 +107,25 @@ function Navbar() {
                   </li>
                 ))}
                 <li>
-                  <div className="block py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0">
-                    Cart: {cartEntries.length}
-                  </div>
+
+                  <Link href="/shop/cart" className="flex space-x-2 items-center py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0">
+                    Cart:      
+            {" "}
+            <FaCartPlus />
+         
+          <p className="text-sm bg-red-600 rounded-full p-1 px-2">
+            {" "}
+            {cartEntries.length}
+          </p>
+                  </Link>
                 </li>
               </ul>
             </div>
           )}
         </div>
-        <div className="absolute right-24 top-1/2 text-2xl -mt-2 md:flex items-center space-x-2 hidden">
+        {!isOpen && (
+
+        <div className="absolute right-24 top-1/2 text-2xl -mt-3 md:flex items-center space-x-2 hidden">
           {" "}
           <Link href="/shop/cart">
             {" "}
@@ -125,7 +135,7 @@ function Navbar() {
             {" "}
             {cartEntries.length}
           </p>
-        </div>
+        </div>)}
       </nav>
     </header>
   );

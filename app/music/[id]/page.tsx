@@ -19,7 +19,7 @@ async function page({ params }: { params: { id: string } }) {
   return (
     <>
       {song && (
-        <div className="relative h-screen overflow-x-hidden">
+        <div className="relative  overflow-hidden">
           <div className="absolute inset-0 overflow-visible bg-black opacity-30 object-cover">
             <Image
               alt={song?.title}
@@ -29,7 +29,7 @@ async function page({ params }: { params: { id: string } }) {
               className="object-cover scale-150 blur"
             />
           </div>
-          <div className="bg-black bg-opacity-80 flex justify-center items-center px-4  ">
+          <div className="bg-black bg-opacity-80 flex justify-center items-center md:px-4  ">
             <div className="bg-black bg-opacity-90 border border-zinc-800 rounded p-5 max-w-md mx-auto min-h-72 relative mb-24 mt-24">
               <ButtonGroup {...props} />
             </div>
