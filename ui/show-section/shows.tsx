@@ -8,18 +8,18 @@ function Shows({ shows }: any) {
       <h2 className="font-owners text-3xl font-extrabold uppercase pb-2">
         Shows
       </h2>
-      <table className="w-full text-base text-left rtl:text-right text-gray-500 dark:text-gray-200 font-bold">
+      <table className="w-full text-base text-left rtl:text-right  text-zinc-200 font-bold">
         <tbody>
           {shows.map((show: any) => {
             const date = reformatDate(show.date);
             return (
               <tr
                 key={show._id}
-                className="bg-white border-b dark:bg-black dark:border-gray-700 font-owners-wide text-xs sm:text-sm md:text-base"
+                className="border-b bg-black border-zinc-700 font-owners-wide text-xs sm:text-sm md:text-base"
               >
                 <th
                   scope="row"
-                  className="md:px-6 md:py-4 px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white"
+                  className="md:px-6 md:py-4 px-4 py-2  whitespace-nowrap text-white"
                 >
                   {date.mmddyyyy}
                 </th>

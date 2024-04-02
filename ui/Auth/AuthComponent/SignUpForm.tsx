@@ -14,16 +14,16 @@ export const SignUpForm = ({ logo }: any) => {
           <Link href="/" className="flex items-center p-8">
             <Image
               src={logo}
-              className="h-8 mr-3 dark:invert w-auto"
+              className="h-8 mr-3 invert w-auto"
               alt="Crib Logo"
               width={145}
               height={100}
               priority
             />
           </Link>
-          <div className="w-full bg-white rounded-md shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-black dark:border-zinc-800">
+          <div className="w-full  rounded-md shadow border md:mt-0 sm:max-w-md xl:p-0 bg-black border-zinc-800">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-zinc-900 md:text-2xl dark:text-white">
+              <h1 className="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
                 Register a new account
               </h1>
               <GoogleAuthButton />
@@ -35,7 +35,7 @@ export const SignUpForm = ({ logo }: any) => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-zinc-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium  text-white"
                   >
                     Your email
                   </label>
@@ -45,7 +45,7 @@ export const SignUpForm = ({ logo }: any) => {
                     //  onChange={(e) => setEmail(e.target.value)}
                     //  value={email}
                     id="email"
-                    className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-md focus:ring-red-300 focus:border-zinc-800 block w-full p-2.5 dark:bg-zinc-700 dark:border-zinc-800 dark:placeholder-zinc-400 dark:text-white dark:focus:ring-red-300 dark:focus:border-red-300"
+                    className=" border   sm:text-sm rounded-md focus:ring-red-300 focus:border-zinc-800 block w-full p-2.5 bg-zinc-700 border-zinc-800 placeholder-zinc-400 text-white "
                     placeholder="name@company.com"
                     required
                   />
@@ -53,7 +53,7 @@ export const SignUpForm = ({ logo }: any) => {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-zinc-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium  text-white"
                   >
                     Password
                   </label>
@@ -64,7 +64,7 @@ export const SignUpForm = ({ logo }: any) => {
                     //  onChange={(e) => setPassword(e.target.value)}
                     //  value={password}
                     placeholder="••••••••"
-                    className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-md focus:ring-red-300 focus:border-zinc-800 block w-full p-2.5 dark:bg-zinc-700 dark:border-zinc-800 dark:placeholder-zinc-400 dark:text-white dark:focus:ring-red-300 dark:focus:border-red-300"
+                    className=" border   sm:text-sm rounded-md focus:ring-red-300 focus:border-zinc-800 block w-full p-2.5 bg-zinc-700 border-zinc-800 placeholder-zinc-400 text-white "
                     required
                   />
                 </div>
@@ -76,11 +76,11 @@ export const SignUpForm = ({ logo }: any) => {
                 >
                   Sign Up
                 </button>
-                <p className="text-sm font-light text-zinc-500 dark:text-zinc-400">
+                <p className="text-sm font-light text-zinc-400">
                   Already have an account?{" "}
                   <Link
                     href="/login"
-                    className="font-medium text-zinc-800 dark:text-zinc-300 hover:underline dark:text-primary-500"
+                    className="font-medium text-zinc-300 hover:underline "
                   >
                     Sign in
                   </Link>
@@ -99,16 +99,16 @@ export const SignUpForm = ({ logo }: any) => {
         <Link href="/" className="flex items-center p-8">
           <Image
             src={logo}
-            className="h-8 mr-3 dark:invert w-auto"
+            className="h-8 mr-3 invert w-auto"
             alt="Crib Logo"
             width={145}
             height={100}
             priority
           />
         </Link>
-        <div className="w-full bg-white rounded-md shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-black dark:border-zinc-800">
+        <div className="w-full  rounded-md shadow border md:mt-0 sm:max-w-md xl:p-0 bg-black border-zinc-800">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-full">
-            <p className="text-base font-medium leading-tight text-center tracking-tight text-zinc-900 md:text-lg dark:text-white">
+            <p className="text-base font-medium leading-tight text-center tracking-tight  md:text-lg text-white">
               Please check your inbox and confirm your email.
             </p>
           </div>
@@ -117,7 +117,7 @@ export const SignUpForm = ({ logo }: any) => {
     );
   };
   return (
-    <section className="bg-zinc-50 dark:bg-zinc-950 w-screen ">
+    <section className=" bg-zinc-950 w-screen ">
       {params.startsWith("confirm") ? renderConfirmForm() : renderStep1()}
     </section>
   );

@@ -20,7 +20,7 @@ function GoogleAuthButton() {
   };
   return (
     <div
-      className="flex items-center border rounded space-x-2 p-2 border-zinc-300 dark:border-zinc-800 cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-900 duration-300 ease-in-out"
+      className="flex items-center border rounded space-x-2 p-2  border-zinc-800 cursor-pointer  hover:bg-zinc-900 duration-300 ease-in-out"
       onClick={() => handleSignInWithGoogle()}
     >
       <FaGoogle />

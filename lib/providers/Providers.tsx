@@ -13,11 +13,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 
       <CartProviderWrapper>
         <Suspense>
-          {/* <ThemeProvider
-            enableSystem={true}
-            attribute="class"
-            defaultTheme="dark"
-          > */}
+ 
           {children}
           {/* </ThemeProvider> */}
         </Suspense>

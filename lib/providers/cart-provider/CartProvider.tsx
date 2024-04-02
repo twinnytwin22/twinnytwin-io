@@ -21,11 +21,7 @@ export const CartProviderWrapper = ({
       shouldPersist={true}
     >
       <Suspense>
-        {/* <ThemeProvider
-            enableSystem={true}
-            attribute="class"
-            defaultTheme="dark"
-          > */}
+    
         {children}
         {/* </ThemeProvider> */}
       </Suspense>

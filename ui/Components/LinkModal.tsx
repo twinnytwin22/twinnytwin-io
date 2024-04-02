@@ -85,7 +85,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       )}
       {song?.spotifyUrl && (
         <Link target="_blank" href={song.spotifyUrl}>
-          <div className="text-white text-center w-full bg-green-700 hover:bg-green-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none dark:focus:ring-blue-800">
+          <div className="text-white text-center w-full bg-green-700 hover:bg-green-600   font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaSpotify />
               <p className="font-owners font-bold">Listen on Spotify</p>{" "}
@@ -95,7 +95,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       )}
       {song?.amazonUrl && (
         <Link target="_blank" href={song.amazonUrl}>
-          <div className="text-white text-center w-full  focus:ring-4 focus:ring-blue-500 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-sky-600 dark:hover:bg-sky-500 focus:outline-none ">
+          <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-sky-600 hover:bg-sky-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaAmazon />
               <p>Listen on Amazon Music</p>{" "}
@@ -105,7 +105,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       )}
       {song?.youtubeUrl && (
         <Link target="_blank" href={song.youtubeUrl}>
-          <div className="text-white text-center w-full  focus:ring-4 focus:ring-blue-500 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-red-600 dark:hover:bg-red-500 focus:outline-none ">
+          <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-red-600 hover:bg-red-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaYoutube />
               <p>Listen on Youtube</p>{" "}
@@ -115,7 +115,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       )}
       {song?.deezerUrl && (
         <Link target="_blank" href={song.deezerUrl}>
-          <div className="text-white text-center w-full  focus:ring-4 focus:ring-blue-500 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-indigo-600 dark:hover:bg-indigo-500 focus:outline-none ">
+          <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-indigo-600 hover:bg-indigo-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <SiDeezer />
               <p>Listen on Deezer</p>{" "}
@@ -125,7 +125,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       )}
       {song?.appleUrl && (
         <Link target="_blank" href={song.appleUrl}>
-          <div className="text-white text-center w-full  focus:ring-4 focus:ring-blue-500 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-rose-600 dark:hover:bg-rose-500 focus:outline-none ">
+          <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-rose-600 hover:bg-rose-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaMusic />
               <p> {"Listen on Apple Music"} </p>{" "}
@@ -135,7 +135,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       )}
       {song?.tidalUrl && (
         <Link target="_blank" href={song.tidalUrl}>
-          <div className="text-white text-center w-full  focus:ring-4 focus:ring-blue-500 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-black dark:hover:bg-zinc-950 focus:outline-none  border border-zinc-800">
+          <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-black hover:bg-zinc-950 focus:outline-none  border border-zinc-800">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <SiTidal />
               <p>Listen on Tidal</p>{" "}

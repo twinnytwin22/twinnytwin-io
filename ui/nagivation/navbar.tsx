@@ -1,25 +1,35 @@
-"use client";
+'use client'
 import React, { useState } from "react";
 import Image from "next/image";
 import { useHandleOutsideClick } from "@/utils/hooks/handleOutsideClick";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa6";
 import { useShoppingCart } from "use-shopping-cart";
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   useHandleOutsideClick(isOpen, setIsOpen, "mobile-menu");
   const { cartDetails } = useShoppingCart();
 
   const cartEntries = Object.values(cartDetails ?? {}).map((entry) => entry);
+
+  // Define an array of route objects
+  const routes = [
+    { path: "/", name: "Home" },
+    { path: "/music", name: "Music" },
+    { path: "/shop", name: "Shop" },
+    { path: "#", name: "Contact" },
+  ];
+
   return (
     <header className="fixed w-full z-30 font-owners font-semibold uppercase">
-      <nav className="bg-white border-zinc-200 px-4 lg:px-6 py-2.5 dark:bg-black border-b dark:border-zinc-900 relative ">
+      <nav className="bg-black border-zinc-200 px-4 lg:px-6 py-2.5 relative ">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link href="/" className="flex items-center">
             <Image
               src="/twin-logo-white.webp"
               className=""
-              alt="Flowbite Logo"
+              alt="Twinny Twin Logo"
               height={50}
               width={50}
             />
@@ -28,7 +38,7 @@ function Navbar() {
             <button
               onClick={() => setIsOpen(true)}
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-zinc-500 rounded-lg lg:hidden hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-600"
+              className="inline-flex items-center p-2 ml-1 text-sm text-zinc-500 rounded-lg lg:hidden hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-200"
               aria-controls="mobile-menu-2"
               aria-expanded="false"
             >
@@ -64,40 +74,18 @@ function Navbar() {
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4  lg:flex-row lg:space-x-8 lg:mt-0">
-              <li>
-                <a
-                  href="/"
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/music"
-                  className="block py-2 pr-4 pl-3 text-zinc-700 border-b border-zinc-100 hover:bg-zinc-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-zinc-400 lg:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-zinc-700"
-                >
-                  Music
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/shop"
-                  className="block py-2 pr-4 pl-3 text-zinc-700 border-b border-zinc-100 hover:bg-zinc-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-zinc-400 lg:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-zinc-700"
-                >
-                  Shop
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-zinc-700 border-b border-zinc-100 hover:bg-zinc-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-zinc-400 lg:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-zinc-700"
-                >
-                  Contact
-                </a>
-              </li>
+              {/* Map over routes and generate navigation links */}
+              {routes.map((route, index) => (
+                <li key={index}>
+                  <Link
+                    href={route.path}
+                    className="block py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0"
+                    aria-current="page"
+                  >
+                    {route.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           {isOpen && (
@@ -106,45 +94,30 @@ function Navbar() {
               id="mobile-menu-2"
             >
               <ul className="flex flex-col mt-4  lg:flex-row lg:space-x-8 lg:mt-0">
+                {/* Map over routes and generate navigation links */}
+                {routes.map((route, index) => (
+                  <li key={index}>
+                    <Link
+                      href={route.path}
+                      className="block py-2 pr-4 pl-3 text-white rounded border-b border-zinc-800 hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0"
+                      aria-current="page"
+                    >
+                      {route.name}
+                    </Link>
+                  </li>
+                ))}
                 <li>
-                  <a
-                    href="/"
-                    className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
-                    aria-current="page"
+                  <div
+                    className="block py-2 pr-4 pl-3 text-white rounded hover:bg-zinc-900 lg:bg-transparent lg:text-primary-700 lg:p-0"
                   >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/music"
-                    className="block py-2 pr-4 pl-3 text-zinc-700 border-b border-zinc-100 hover:bg-zinc-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-zinc-400 lg:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-zinc-700"
-                  >
-                    Music
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/shop"
-                    className="block py-2 pr-4 pl-3 text-zinc-700 border-b border-zinc-100 hover:bg-zinc-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-zinc-400 lg:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-zinc-700"
-                  >
-                    Shop
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-zinc-700 border-b border-zinc-100 hover:bg-zinc-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-zinc-400 lg:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-zinc-700"
-                  >
-                    Contact
-                  </a>
+                    Cart: {cartEntries.length}
+                  </div>
                 </li>
               </ul>
             </div>
           )}
         </div>
-        <div className="absolute right-24 top-1/2 text-2xl -mt-2 flex items-center space-x-2">
+        <div className="absolute right-24 top-1/2 text-2xl -mt-2 md:flex items-center space-x-2 hidden">
           {" "}
           <Link href="/shop/cart">
             {" "}

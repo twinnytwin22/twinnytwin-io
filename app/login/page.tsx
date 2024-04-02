@@ -5,7 +5,7 @@ async function page() {
   const settings = await getSiteSettings();
 
   return (
-    <div className="h-screen items-center flex w-full bg-zinc-100 dark:bg-black">
+    <div className="h-screen items-center flex w-full bg-black">
       <AuthComponent settings={settings} />
     </div>
   );

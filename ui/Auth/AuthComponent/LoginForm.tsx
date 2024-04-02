@@ -3,21 +3,21 @@ import Link from "next/link";
 import GoogleAuthButton from "../GoogleAuthButton";
 export const LoginForm = ({ logo }: any) => {
   return (
-    <section className="bg-zinc-50 dark:bg-zinc-950 w-screen ">
+    <section className=" bg-zinc-950 w-screen ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <Link href="/" className="flex items-center p-8">
+        <Link href="/" className="hidden items-center p-8">
           <Image
             src={logo}
-            className="h-8 mr-3 dark:invert w-auto"
+            className="h-8 mr-3 invert w-auto"
             alt="Crib Logo"
             width={145}
             height={100}
             priority
           />
         </Link>
-        <div className="w-full bg-white rounded-md shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-black dark:border-zinc-800">
+        <div className="w-full rounded-md shadow border md:mt-0 sm:max-w-md xl:p-0 bg-black border-zinc-800">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-zinc-900 md:text-2xl dark:text-white">
+            <h1 className="text-xl font-owners font-bold leading-tight tracking-tight  md:text-2xl text-white">
               Sign in to your account
             </h1>
             <GoogleAuthButton />
@@ -29,7 +29,7 @@ export const LoginForm = ({ logo }: any) => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-zinc-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium  text-white"
                 >
                   Your email
                 </label>
@@ -39,7 +39,7 @@ export const LoginForm = ({ logo }: any) => {
                   //  onChange={(e) => setEmail(e.target.value)}
                   //  value={email}
                   id="email"
-                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-md focus:ring-red-300 focus:border-zinc-800 block w-full p-2.5 dark:bg-zinc-700 dark:border-zinc-800 dark:placeholder-zinc-400 dark:text-white dark:focus:ring-red-300 dark:focus:border-red-300"
+                  className=" border sm:text-sm rounded-md  block w-full p-2.5 bg-zinc-900 border-zinc-800 placeholder-zinc-400 text-white focus:ring-red-300 focus:border-red-300"
                   placeholder="name@company.com"
                   required
                 />
@@ -47,7 +47,7 @@ export const LoginForm = ({ logo }: any) => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-zinc-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium  text-white"
                 >
                   Password
                 </label>
@@ -58,7 +58,7 @@ export const LoginForm = ({ logo }: any) => {
                   //  onChange={(e) => setPassword(e.target.value)}
                   //  value={password}
                   placeholder="••••••••"
-                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-md focus:ring-red-300 focus:border-zinc-800 block w-full p-2.5 dark:bg-zinc-700 dark:border-zinc-800 dark:placeholder-zinc-400 dark:text-white dark:focus:ring-red-300 dark:focus:border-red-300"
+                  className=" border sm:text-sm rounded-md  block w-full p-2.5 bg-zinc-900 border-zinc-800 placeholder-zinc-400 text-white focus:ring-red-300 focus:border-red-300"
                   required
                 />
               </div>
@@ -69,13 +69,13 @@ export const LoginForm = ({ logo }: any) => {
                       id="remember"
                       aria-describedby="remember"
                       type="checkbox"
-                      className="w-4 h-4 border border-zinc-300 rounded bg-zinc-50 focus:ring-3 focus:ring-primary-300 dark:bg-zinc-700 dark:border-zinc-800 dark:focus:ring-red-300 dark:ring-offset-zinc-800"
+                      className="w-4 h-4 border  rounded focus:ring-3 focus:ring-primary-300 bg-zinc-700 border-zinc-800 focus:ring-red-300 ring-offset-zinc-800"
                     />
                   </div>
                   <div className="ml-3 text-sm">
                     <label
                       htmlFor="remember"
-                      className="text-zinc-500 dark:text-zinc-300"
+                      className=" text-zinc-300"
                     >
                       Remember me
                     </label>
@@ -83,7 +83,7 @@ export const LoginForm = ({ logo }: any) => {
                 </div>
                 <a
                   href="#"
-                  className="text-sm font-medium text-zinc-800 dark:text-zinc-300 hover:underline dark:text-primary-500"
+                  className="text-sm font-medium  text-zinc-300 hover:underline text-primary-500"
                 >
                   Forgot password?
                 </a>
@@ -92,15 +92,15 @@ export const LoginForm = ({ logo }: any) => {
                 formAction={"/auth/login"}
                 //  onClick={() =>signInWithEmail(email, password)}
                 type="submit"
-                className="w-full text-black font-medium bg-red-200 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-red-300  rounded-md text-sm px-5 py-2.5 text-center "
+                className="w-full font-owners font-bold text-white  bg-red-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-red-300  rounded-md text-sm px-5 py-2.5 text-center "
               >
                 Sign in
               </button>
-              <p className="text-sm font-light text-zinc-500 dark:text-zinc-400">
+              <p className="text-sm font-light  text-zinc-400">
                 Don’t have an account yet?{" "}
                 <Link
                   href="/register"
-                  className="font-medium text-zinc-800 dark:text-zinc-300 hover:underline dark:text-primary-500"
+                  className="font-owners font-bold text-zinc-300 hover:underline text-primary-500"
                 >
                   Sign up
                 </Link>
