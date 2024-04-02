@@ -13,7 +13,7 @@ function Footer() {
   return (
 
 
-<footer className="bg-black rounded-lg shadow  m-4 w-full">
+<footer className="bg-black rounded-lg shadow  m-4 w-full relative z-20 bottom-0">
     <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
             <Link href="/" className="flex items-center">

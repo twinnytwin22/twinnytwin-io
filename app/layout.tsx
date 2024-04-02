@@ -17,12 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="overflow-x-hidden">
+      <body className="overflow-x-hidden h-full relative">
         <Providers>
           <Navbar />
           <LinkModal />
 
           {children}
+          <br/>
           <Footer/>
         </Providers>
       </body>

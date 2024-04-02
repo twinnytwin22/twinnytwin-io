@@ -44,7 +44,7 @@ function CartEntry({
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-dark-100">
-      <DecrementItem/>
+      <DecrementItem id={entry.id}/>
               <input
                 readOnly
                 className="h-8 w-8 border bg-zinc-900 text-center text-xs font-bold outline-none"
@@ -52,7 +52,7 @@ function CartEntry({
                 value={entry.quantity}
                 min="1"
               />
-       <IncrementItem/>
+       <IncrementItem id={entry.id}/>
             </div>
             <div className="flex items-center space-x-4">
               <p className="text-sm">{entry.price * entry.quantity}</p>
@@ -88,10 +88,10 @@ function Cart() {
   console.log("cd", cartEntries.length);
 
   return (
-    <div className="h-screen bg-black pt-24 font-owners">
-      <h1 className="mb-10 text-center text-2xl font-bold font-owners-wide">
-        Cart Items
-      </h1>
+    <main className="relative max-w-7xl w-full py-28 mx-auto p-8">
+      <h2 className="font-owners text-3xl font-extrabold uppercase pb-2">
+       Cart Items
+      </h2>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
           {cartEntries.length === 0 ? <p>Cart is empty.</p> : null}
@@ -118,14 +118,14 @@ function Cart() {
               <p className="mb-1 text-lg font-bold">
                 ${grandTotal(totalPrice!)} USD
               </p>
-              <p className="text-sm text-zinc-100">including VAT</p>
+              <p className="text-sm text-zinc-100">including shipping</p>
             </div>
           </div>
 
           <CheckOutButton />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
