@@ -98,7 +98,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-sky-600 hover:bg-sky-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaAmazon />
-              <p>Listen on Amazon Music</p>{" "}
+              <p className="font-owners font-bold">Listen on Amazon Music</p>{" "}
             </div>
           </div>
         </Link>
@@ -108,7 +108,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-red-600 hover:bg-red-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaYoutube />
-              <p>Listen on Youtube</p>{" "}
+              <p className="font-owners font-bold">Listen on Youtube</p>{" "}
             </div>
           </div>
         </Link>
@@ -118,7 +118,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-indigo-600 hover:bg-indigo-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <SiDeezer />
-              <p>Listen on Deezer</p>{" "}
+              <p className="font-owners font-bold">Listen on Deezer</p>{" "}
             </div>
           </div>
         </Link>
@@ -128,7 +128,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-rose-600 hover:bg-rose-500 focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaMusic />
-              <p> {"Listen on Apple Music"} </p>{" "}
+              <p className="font-owners font-bold">{"Listen on Apple Music"} </p>{" "}
             </div>
           </div>
         </Link>
@@ -138,7 +138,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           <div className="text-white text-center w-full    font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-black hover:bg-zinc-950 focus:outline-none  border border-zinc-800">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <SiTidal />
-              <p>Listen on Tidal</p>{" "}
+              <p className="font-owners font-bold">Listen on Tidal</p>{" "}
             </div>
           </div>
         </Link>

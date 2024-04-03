@@ -43,7 +43,7 @@ function MusicPage({ music }: any) {
                     >
                       <FaPlay />
                     </div>
-                    <p className="text-sm md:text-base mt-2">{item.title}</p>
+                    <p className="text-sm md:text-base mt-2 tracking-wider">{item.title}</p>
                   </div>
                 );
             })}
@@ -78,7 +78,7 @@ function MusicPage({ music }: any) {
                       >
                         <FaPlay />
                       </div>
-                      <p className="text-sm md:text-base mt-2">{item.title}</p>
+                      <p className="text-sm md:text-base mt-2 tracking-wider">{item.title}</p>
                     </div>
                   );
               })}

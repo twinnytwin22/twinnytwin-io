@@ -94,12 +94,12 @@ const ConnectBox = ({ latestRelease }: any) => {
     <div className="relative space-y-4 w-72 bg-black bg-opacity-60 rounded-lg p-8 border border-zinc-800 shadow-sm shadow-zinc-900">
       <div>
         <div className="text-center font-owners font-extrabold text-lg">
-          Latest Release
+          LATEST RELEASE
         </div>
-        <p className="text-center font-owners text-base ">
+        <p className="text-center font-owners text-base tracking-wider">
           {latestRelease.title}
         </p>
-        <p className="text-xs font-owners text-center">
+        <p className="text-xs font-owners text-center tracking-wider">
           Twinny Twin, {latestRelease.additionalArtists}
         </p>
       </div>
