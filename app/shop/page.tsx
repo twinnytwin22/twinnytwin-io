@@ -28,8 +28,8 @@ async function page() {
                 alt="twin-hoodie"
                 src={getSanityImage(product.primaryImage)}
               />
-              <p className="text-white text-center font-owners ">
-                {product.name} | ${product.price}
+              <p className="text-white text-center font-owners tracking-wider">
+                <span className="font-bold">{product.name}</span> | ${product.price}
               </p>
             </Link>
           ))}

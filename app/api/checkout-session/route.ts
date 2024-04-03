@@ -17,8 +17,9 @@ export async function OPTIONS() {
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { storedId: string } },
 ) {
+
+  const orderDetails = await req.json()
   try {
     const inventory = await getProducts();
     const cartProducts = await req.json();
@@ -36,6 +37,20 @@ export async function POST(
           shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
         },
       ],
+      custom_fields:[{
+        key: 'size',
+        label: {
+          custom: 'Size',
+          type: 'custom'
+        },
+        dropdown: {
+          options: [{
+            label: 'Small',
+            value: 'small'
+          }]
+        },
+        type: 'text'
+      }],
     });
     return NextResponse.json(
       { sessionId: checkoutSession.id, ok: true, status: 200 },
