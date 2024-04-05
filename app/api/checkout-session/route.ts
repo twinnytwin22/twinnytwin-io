@@ -43,7 +43,7 @@ export async function POST(
               amount: 799,
               currency: 'usd',
             },
-            display_name: 'Free shipping',
+            display_name: 'Standard Shipping',
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',
