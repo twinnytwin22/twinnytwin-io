@@ -25,13 +25,18 @@ export async function POST(
     const line_items = validateCartItems(inventory, cartProducts);
     console.log("line_items", line_items);
     const checkoutSession = await stripe.checkout.sessions.create({
+      line_items,
       mode: "payment",
+      invoice_creation: {
+        enabled: true,
+      },
+    
       //submit_type: "pay",
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
       automatic_tax: { enabled: true },
       
-      shipping_address_collection : {
+      shipping_address_collection: {
         allowed_countries: ['US', 'CA']
       },
       shipping_options: [
@@ -46,15 +51,35 @@ export async function POST(
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',
-                value: 5,
+                value: 3,
               },
               maximum: {
                 unit: 'business_day',
-                value: 7,
+                value: 5,
               },
             },
-
           },
+          
+        }, {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {
+              amount: 799,
+              currency: 'usd',
+            },
+            display_name: 'Free Shipping',
+            delivery_estimate: {
+              minimum: {
+                unit: 'business_day',
+                value: 7,
+              },
+              maximum: {
+                unit: 'business_day',
+                value: 10,
+              },
+            },
+          },
+          
         },],
       
       // custom_fields:[{
@@ -71,7 +96,6 @@ export async function POST(
       //   },
       //   type: 'text'
       // }],
-    line_items,
 
     });
     return NextResponse.json(

@@ -19,7 +19,7 @@ export const CartProviderWrapper = ({
       allowedCountries={["US", "GB", "CA"]}
       billingAddressCollection={true}
       shouldPersist={true}
-    >
+          >
       <Suspense>
         {children}
         {/* </ThemeProvider> */}
