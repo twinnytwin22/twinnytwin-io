@@ -26,7 +26,7 @@ export async function POST(
     console.log("line_items", line_items);
     const checkoutSession = await stripe.checkout.sessions.create({
       mode: "payment",
-      submit_type: "pay",
+      //submit_type: "pay",
       line_items,
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
