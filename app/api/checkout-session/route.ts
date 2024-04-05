@@ -27,10 +27,9 @@ export async function POST(
     const checkoutSession = await stripe.checkout.sessions.create({
       mode: "payment",
       //submit_type: "pay",
-      line_items,
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
-      automatic_tax: { enabled: false },
+      automatic_tax: { enabled: true },
       
       shipping_address_collection : {
         allowed_countries: ['US', 'CA']
@@ -54,23 +53,26 @@ export async function POST(
                 value: 7,
               },
             },
+
           },
         },],
       
-      custom_fields:[{
-        key: 'size',
-        label: {
-          custom: 'Size',
-          type: 'custom'
-        },
-        dropdown: {
-          options: [{
-            label: 'Small',
-            value: 'small'
-          }]
-        },
-        type: 'text'
-      }],
+      // custom_fields:[{
+      //   key: 'size',
+      //   label: {
+      //     custom: 'Size',
+      //     type: 'custom'
+      //   },
+      //   dropdown: {
+      //     options: [{
+      //       label: 'Small',
+      //       value: 'small'
+      //     }]
+      //   },
+      //   type: 'text'
+      // }],
+    line_items,
+
     });
     return NextResponse.json(
       { sessionId: checkoutSession.id, ok: true, status: 200 },
