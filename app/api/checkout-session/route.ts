@@ -40,7 +40,7 @@ export async function POST(
           shipping_rate_data: {
             type: 'fixed_amount',
             fixed_amount: {
-              amount: 0,
+              amount: 799,
               currency: 'usd',
             },
             display_name: 'Free shipping',
