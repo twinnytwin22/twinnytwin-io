@@ -34,10 +34,10 @@ export async function POST(
       //submit_type: "pay",
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
-      automatic_tax: { enabled: true },
+     // automatic_tax: { enabled: true },
       
       shipping_address_collection: {
-        allowed_countries: ['US', 'CA']
+        allowed_countries: ['US','CA']
       },
       shipping_options: [
         {

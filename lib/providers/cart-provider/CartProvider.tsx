@@ -16,7 +16,7 @@ export const CartProviderWrapper = ({
       successUrl="https://twinnytwin.io"
       cancelUrl="https://twinnytwin.io/shop"
       currency="USD"
-      allowedCountries={["US", "GB", "CA"]}
+      allowedCountries={["US","CA"]}
       billingAddressCollection={true}
       shouldPersist={true}
           >
