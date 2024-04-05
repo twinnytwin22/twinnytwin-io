@@ -19,7 +19,6 @@ export async function POST(
   req: NextRequest,
 ) {
 
-  const orderDetails = await req.json()
   try {
     const inventory = await getProducts();
     const cartProducts = await req.json();
@@ -32,11 +31,22 @@ export async function POST(
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
       automatic_tax: { enabled: true },
+      
+      shipping_address_collection : {
+        allowed_countries: ['US', 'CA']
+      },
       shipping_options: [
         {
           shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
+          
+        //  shipping_rate_data: [{
+        //  display_name: 'Standard Shipping',
+        //  type:'fixed_amount'
+        //   }
+        //  ],
         },
       ],
+      
       custom_fields:[{
         key: 'size',
         label: {

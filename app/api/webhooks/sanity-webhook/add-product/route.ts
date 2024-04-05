@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
         const productData: Product = {
           _id: _id, // Use the _id from Sanity as the id in Supabase
-          name: title || "",
+          name: title ||  "",
           price: price,
           //quantity: 1
         };
