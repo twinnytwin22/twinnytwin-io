@@ -37,15 +37,25 @@ export async function POST(
       },
       shipping_options: [
         {
-          shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
-          
-        //  shipping_rate_data: [{
-        //  display_name: 'Standard Shipping',
-        //  type:'fixed_amount'
-        //   }
-        //  ],
-        },
-      ],
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {
+              amount: 0,
+              currency: 'usd',
+            },
+            display_name: 'Free shipping',
+            delivery_estimate: {
+              minimum: {
+                unit: 'business_day',
+                value: 5,
+              },
+              maximum: {
+                unit: 'business_day',
+                value: 7,
+              },
+            },
+          },
+        },],
       
       custom_fields:[{
         key: 'size',
