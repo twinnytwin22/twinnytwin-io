@@ -14,7 +14,7 @@ function CheckOutButton() {
     if (cartCount && cartCount > 0) {
       setStatus("loading");
       try {
-        const res = await fetch("https://twinnytwin.io/api/checkout-session", {
+        const res = await fetch("/api/checkout-session", {
           method: "POST",
           body: JSON.stringify(cartDetails),
           cache: 'no-cache'

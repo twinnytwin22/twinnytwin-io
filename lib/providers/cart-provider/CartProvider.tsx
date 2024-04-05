@@ -9,11 +9,11 @@ export const CartProviderWrapper = ({
 }) => {
   return (
     <CartProviders
-     // mode="payment"
-      cartMode="checkout-session"
+      mode="payment"
+      cartMode="client-only"
       stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE as string}
-    //  successUrl="https://twinnytwin.io"
-      //cancelUrl="https://twinnytwin.io/shop"
+      successUrl="https://twinnytwin.io"
+      cancelUrl="https://twinnytwin.io/shop"
       currency="USD"
      // allowedCountries={["US","CA"]}
     //  billingAddressCollection={true}
