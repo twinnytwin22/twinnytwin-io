@@ -13,6 +13,8 @@ const spotifyUrlRegex: { [key: string]: RegExp } = {
   artist: /https:\/\/open.spotify.com\/artist\/([a-zA-Z0-9]+)/,
   track: /https:\/\/open.spotify.com\/track\/([a-zA-Z0-9]+)/,
   playlist: /https:\/\/open.spotify.com\/playlist\/([a-zA-Z0-9]+)/,
+  album: /https:\/\/open.spotify.com\/album\/([a-zA-Z0-9]+)/,
+
 };
 const getTypeAndId = (url: string) => {
   for (const [type, regex] of Object.entries(spotifyUrlRegex)) {
@@ -55,7 +57,7 @@ function LinkModal() {
 export default LinkModal;
 
 export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
-  console.log(links);
+  console.log(song);
 
   const image = getSanityImage(song.coverImage);
   return (
@@ -73,7 +75,17 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
       <div className="scale-75 mx-auto my-4">
         {links && <SocialLinkGroup links={links} />}
       </div>
-      {song?.spotifyUrl && (
+      {song?.spotifyUrl && song.type === 'ep' && (
+        <iframe
+          className="mb-4"
+          src={`https://open.spotify.com/embed/album/${extractTrackId(song.spotifyUrl, "album")}?utm_source=generator`}
+          width="100%"
+          height="152"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      )}
+      {song?.spotifyUrl && song.type === 'single' && (
         <iframe
           className="mb-4"
           src={`https://open.spotify.com/embed/track/${extractTrackId(song.spotifyUrl, "track")}?utm_source=generator`}
@@ -84,7 +96,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
         ></iframe>
       )}
       {song?.spotifyUrl && (
-        <Link target="_blank" href={song.spotifyUrl}>
+        <Link className="hidden" target="_blank" href={song.spotifyUrl}>
           <div className="text-white text-center w-full bg-green-700 hover:bg-green-600   font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none ">
             <div className="flex mx-auto space-x-2 items-center justify-center">
               <FaSpotify />
