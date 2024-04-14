@@ -27,15 +27,16 @@ export async function POST(
     const checkoutSession = await stripe.checkout.sessions.create({
       line_items,
       mode: "payment",
-      invoice_creation: {
-        enabled: true,
-      },
+      // invoice_creation: {
+      //   enabled: true,
+      // },
     
       //submit_type: "pay",
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
      // automatic_tax: { enabled: true },
-      
+      billing_address_collection: 'auto',
+
       shipping_address_collection: {
         allowed_countries: ['US','CA']
       },
