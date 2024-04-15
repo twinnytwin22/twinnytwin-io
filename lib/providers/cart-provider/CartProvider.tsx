@@ -13,7 +13,15 @@ const options = {
   currency: "USD",
   allowedCountries: ["US","CA"],
   billingAddressCollection: true,
-  shouldPersist: true
+  shouldPersist: true,
+  shipping_address_collection: {
+    allowed_countries: ["US", "CA"],
+  },
+  shipping_options: [
+    {
+      shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
+    },
+  ],
 }
 export const CartProviderWrapper = ({
   children,
