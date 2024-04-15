@@ -17,9 +17,9 @@ function CheckOutButton() {
         const res = await fetch("/api/checkout-session", {
           method: "POST",
           body: JSON.stringify(cartDetails),
-          headers: {
-            "Content-Type": "application/json",
-          },
+            headers: {
+    "Content-Type": "application/json",
+  },
           cache: 'no-cache'
         });
         const data = await res.json();

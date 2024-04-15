@@ -15,98 +15,37 @@ export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeaders });
 }
 
-export async function POST(
-  req: NextRequest,
-) {
-
+export async function POST(req: NextRequest) {
   try {
     const inventory = await getProducts();
     const cartProducts = await req.json();
     const line_items = validateCartItems(inventory, cartProducts);
-    console.log("line_items", line_items);
+        
     const checkoutSession = await stripe.checkout.sessions.create({
       line_items,
       mode: "payment",
-      // invoice_creation: {
-      //   enabled: true,
-      // },
-    
-      //submit_type: "pay",
       success_url: `${headers().get("origin")}/`,
       cancel_url: `${headers().get("origin")}/`,
-     // automatic_tax: { enabled: true },
-      billing_address_collection: 'auto',
-
+      billing_address_collection: "auto",
       shipping_address_collection: {
-        allowed_countries: ['US','CA']
+        allowed_countries: ["US", "CA"],
       },
       shipping_options: [
         {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: {
-              amount: 799,
-              currency: 'usd',
-            },
-            display_name: 'Standard Shipping',
-            delivery_estimate: {
-              minimum: {
-                unit: 'business_day',
-                value: 3,
-              },
-              maximum: {
-                unit: 'business_day',
-                value: 5,
-              },
-            },
-          },
-          
-        }, {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: {
-              amount: 799,
-              currency: 'usd',
-            },
-            display_name: 'Free Shipping',
-            delivery_estimate: {
-              minimum: {
-                unit: 'business_day',
-                value: 7,
-              },
-              maximum: {
-                unit: 'business_day',
-                value: 10,
-              },
-            },
-          },
-          
-        },],
-      
-      // custom_fields:[{
-      //   key: 'size',
-      //   label: {
-      //     custom: 'Size',
-      //     type: 'custom'
-      //   },
-      //   dropdown: {
-      //     options: [{
-      //       label: 'Small',
-      //       value: 'small'
-      //     }]
-      //   },
-      //   type: 'text'
-      // }],
-
+          shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
+        },
+      ],
     });
+
     return NextResponse.json(
       { sessionId: checkoutSession.id, ok: true, status: 200 },
-      { headers: corsHeaders },
+      { headers: corsHeaders }
     );
+
   } catch (error) {
     console.error("Error processing checkout:", error);
     return NextResponse.json({
-      error: "Error processing checkout",
+      error: JSON.stringify(error),
       status: 500,
     });
   }
