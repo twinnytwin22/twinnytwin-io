@@ -24,6 +24,7 @@ function CheckOutButton() {
           cache: "no-cache",
         });
         const data = await res.json();
+        alert(data.sessionId)
         // console.log(data)
         const result = await redirectToCheckout(data.sessionId);
         if (result?.error) {

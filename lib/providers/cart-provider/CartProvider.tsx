@@ -1,4 +1,5 @@
 'use client'
+import { defaultOverrides } from "next/dist/server/require-hook";
 import * as React from "react";
 import { Suspense } from "react";
 import { CartProvider as CartProviders } from "use-shopping-cart";
@@ -32,6 +33,7 @@ export const CartProviderWrapper = ({
   return (
     <CartWrapper
     {...clientOptions}
+    //{...defaultOverrides}
     // {...serverOptions}
           >
       <Suspense>
