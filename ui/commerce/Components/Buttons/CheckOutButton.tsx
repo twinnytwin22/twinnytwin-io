@@ -15,18 +15,18 @@ function CheckOutButton() {
     if (cartCount && cartCount > 0) {
       setStatus("loading");
       try {
-        const res = await fetch("/api/checkout-session/", {
-          method: "POST",
-          body: JSON.stringify(cartDetails),
-          headers: {
-            "Content-Type": "application/json",
-          },
-          cache: "no-cache",
-        });
-        const data = await res.json();
-        alert(data.sessionId)
+        // const res = await fetch("/api/checkout-session/", {
+        //   method: "POST",
+        //   body: JSON.stringify(cartDetails),
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   cache: "no-cache",
+        // });
+        // const data = await res.json();
+        // alert(data.sessionId)
         // console.log(data)
-        const result = await redirectToCheckout(data.sessionId);
+        const result = await redirectToCheckout();
         if (result?.error) {
           console.error(result);
           setStatus("redirect-error");
