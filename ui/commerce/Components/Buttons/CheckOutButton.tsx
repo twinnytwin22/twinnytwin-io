@@ -9,20 +9,22 @@ function CheckOutButton() {
   const { redirectToCheckout, cartCount, totalPrice, cartDetails } =
     useShoppingCart();
   async function handleClick(event: any) {
-    console.log("beginning checkout");
+    // console.log("beginning checkout");
+
     event.preventDefault();
     if (cartCount && cartCount > 0) {
       setStatus("loading");
       try {
-        const res = await fetch("/api/checkout-session", {
+        const res = await fetch("/api/checkout-session/", {
           method: "POST",
           body: JSON.stringify(cartDetails),
-            headers: {
-    "Content-Type": "application/json",
-  },
-          cache: 'no-cache'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          cache: "no-cache",
         });
         const data = await res.json();
+        // console.log(data)
         const result = await redirectToCheckout(data.sessionId);
         if (result?.error) {
           console.error(result);

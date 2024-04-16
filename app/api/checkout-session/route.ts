@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validateCartItems } from "use-shopping-cart/utilities";
+import { formatLineItems, validateCartItems } from "use-shopping-cart/utilities";
 import { stripe } from "@/lib/providers/stripe/stripe";
 import { headers } from "next/headers";
 import { getProducts } from "@/utils/db";
+
 export const dynamic = "force-dynamic";
 
 const corsHeaders = {
@@ -16,10 +17,20 @@ export async function OPTIONS() {
 }
 
 export async function POST(req: NextRequest) {
+  let checkoutSession: any = null; // Initialize checkoutSession as null
+
   try {
+    // Fetch inventory
     const inventory = await getProducts();
+
+    // Parse request body
     const cartProducts = await req.json();
+    const cartItems = formatLineItems(cartProducts!)
+    console.log(cartItems)
+    // Validate cart items
     const line_items = validateCartItems(inventory, cartProducts);
+
+    // Prepare options for checkout session
     const options: any = {
       line_items,
       mode: "payment",
@@ -34,15 +45,27 @@ export async function POST(req: NextRequest) {
           shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
         },
       ],
-    }
-    const checkoutSession = await stripe.checkout.sessions.create(options);
+    };
 
+    // Create checkout session with error handling
+    try {
+      checkoutSession = await stripe.checkout.sessions.create(options);
+    } catch (stripeError) {
+      console.error("Error processing checkout:", stripeError);
+      return NextResponse.json({
+        error: JSON.stringify(stripeError),
+        status: 500,
+      });
+    }
+
+    // Return response with session ID
     return NextResponse.json(
       { sessionId: checkoutSession.id, ok: true, status: 200 },
       { headers: corsHeaders }
     );
 
   } catch (error) {
+    // Handle errors
     console.error("Error processing checkout:", error);
     return NextResponse.json({
       error: JSON.stringify(error),
