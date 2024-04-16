@@ -20,8 +20,7 @@ export async function POST(req: NextRequest) {
     const inventory = await getProducts();
     const cartProducts = await req.json();
     const line_items = validateCartItems(inventory, cartProducts);
-        
-    const checkoutSession = await stripe.checkout.sessions.create({
+    const options: any = {
       line_items,
       mode: "payment",
       success_url: `${headers().get("origin")}/`,
@@ -35,7 +34,8 @@ export async function POST(req: NextRequest) {
           shipping_rate: "shr_1P0fIIDhPOOQLr7HK08n5zya",
         },
       ],
-    });
+    }
+    const checkoutSession = await stripe.checkout.sessions.create(options);
 
     return NextResponse.json(
       { sessionId: checkoutSession.id, ok: true, status: 200 },
