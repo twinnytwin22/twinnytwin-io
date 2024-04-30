@@ -1,8 +1,10 @@
 "use client";
-import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
+import { useCommerceStore } from "ui/commerce/CommerceStore";
+import { useShoppingCart } from "use-shopping-cart";
 
 export const BuyNowButton = ({ product }: any) => {
   const { checkoutSingleItem } = useShoppingCart();
+  const {selectedColor, selectedSize} = useCommerceStore()
 
   async function buyNow(priceId: string) {
     checkoutSingleItem(priceId);
@@ -23,7 +25,8 @@ export const BuyNowButton = ({ product }: any) => {
 
   return (
     <button
-      onClick={() => buyNow(product.price_id)}
+      disabled={!selectedColor && !selectedSize}
+    //  onClick={() => buyNow(product.price_id)}
       className="w-full border border-zinc-800  text-white py-2 px-4 rounded font-bold hover:bg-zinc-900"
     >
       Buy Now

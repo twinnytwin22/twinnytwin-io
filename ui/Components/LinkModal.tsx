@@ -70,7 +70,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           className="mb-4"
           src={`https://open.spotify.com/embed/album/${extractTrackId(
             song.spotifyUrl,
-            "album"
+            "album",
           )}?utm_source=generator`}
           width="100%"
           height="152"
@@ -83,7 +83,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           className="mb-4"
           src={`https://open.spotify.com/embed/track/${extractTrackId(
             song.spotifyUrl,
-            "track"
+            "track",
           )}?utm_source=generator`}
           width="100%"
           height="152"
@@ -91,7 +91,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           loading="lazy"
         ></iframe>
       )}
-         {song?.appleUrl && (
+      {song?.appleUrl && (
         <LinkButton
           link={song.appleUrl}
           title={"Listen on Apple Music"}
@@ -105,7 +105,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           icon={<SiTidal />}
         />
       )}
-          {song?.youtubeUrl && (
+      {song?.youtubeUrl && (
         <LinkButton
           link={song.youtubeUrl}
           title={"Listen on YouTube"}
@@ -119,7 +119,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           icon={<FaAmazon />}
         />
       )}
-  
+
       {song?.deezerUrl && (
         <LinkButton
           link={song.deezerUrl}
@@ -127,7 +127,6 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           icon={<SiDeezer />}
         />
       )}
-   
     </div>
   );
 };

@@ -4,6 +4,8 @@ import { getProductbyId, getProducts } from "@/utils/db";
 import Image from "next/image";
 import React from "react";
 import AddToCart from "ui/commerce/Components/Buttons/AddToCart";
+import ColorSelectionButtons from "ui/commerce/Components/Buttons/ColorSelectionButtons";
+import SizeButtonRow from "ui/commerce/Components/Buttons/SizeButtonRow";
 
 async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -59,7 +61,8 @@ async function Page({ params }: { params: { id: string } }) {
               <span className="font-owners font-bold text-zinc-300">
                 Select Color:
               </span>
-              <div className="flex items-center mt-2">
+              <ColorSelectionButtons colors={product?.colors} />
+              {/* <div className="flex items-center mt-2">
                 {product?.colors.map((color: string) => {
                   return (
                     <button
@@ -71,11 +74,12 @@ async function Page({ params }: { params: { id: string } }) {
                     ></button>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
             <div className="mb-4 font-owners font-bold">
               <span className="text-zinc-300">Select Size:</span>
-              <div className="flex items-center mt-2">
+              <SizeButtonRow sizes={product.sizes} />
+              {/* <div className="flex items-center mt-2">
                 {product.sizes.map((size: string) => (
                   <button
                     key={size}
@@ -84,7 +88,7 @@ async function Page({ params }: { params: { id: string } }) {
                     {size}
                   </button>
                 ))}
-              </div>
+              </div> */}
             </div>
             <div>
               <span className="font-bold text-zinc-200 font-owners">

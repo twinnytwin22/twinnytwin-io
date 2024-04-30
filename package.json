@@ -10,7 +10,8 @@
     "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
     "make-prettier": "npx prettier . --write",
     "update-types": "supabase gen types typescript --project-id \"gooitcpxvpzxzlqiwody\" > types/Database.ts",
-    "create-products": "curl -X POST http://localhost:3000/api/create-products"
+    "create-products": "curl -X POST http://localhost:3000/api/create-products",
+    "clear-le-cache": "rm -r .next"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",

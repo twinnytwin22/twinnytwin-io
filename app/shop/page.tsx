@@ -29,7 +29,8 @@ async function page() {
                 src={getSanityImage(product.primaryImage)}
               />
               <p className="text-white text-center font-owners tracking-wider">
-                <span className="font-bold">{product.name}</span> | ${product.price}
+                <span className="font-bold">{product.name}</span> | $
+                {product.price}
               </p>
             </Link>
           ))}

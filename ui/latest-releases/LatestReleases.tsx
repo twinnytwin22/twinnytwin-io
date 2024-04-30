@@ -21,7 +21,9 @@ function LatestReleases({ songs }: { songs?: any }) {
                   height={200}
                   className="rounded min-w-36 min-h-36 md:min-w-48 md:min-h-48    "
                 />
-                <p className="text-sm font-owners tracking-wider">{release.title}</p>
+                <p className="text-sm font-owners tracking-wider">
+                  {release.title}
+                </p>
               </Link>
             </div>
           ))}

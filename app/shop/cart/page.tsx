@@ -16,6 +16,7 @@ import {
   CartActions,
   CartEntry as ICartEntry,
 } from "use-shopping-cart/core";
+export const dynamic = "force-dynamic";
 
 function CartEntry({
   entry,

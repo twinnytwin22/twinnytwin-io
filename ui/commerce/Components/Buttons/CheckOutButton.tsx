@@ -14,19 +14,20 @@ function CheckOutButton() {
     event.preventDefault();
     if (cartCount && cartCount > 0) {
       setStatus("loading");
+     // console.log(cartDetails)
       try {
-        // const res = await fetch("/api/checkout-session/", {
-        //   method: "POST",
-        //   body: JSON.stringify(cartDetails),
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   cache: "no-cache",
-        // });
-        // const data = await res.json();
-        // alert(data.sessionId)
+        const res = await fetch("/api/checkout-session", {
+          method: "POST",
+          body: JSON.stringify(cartDetails),
+           headers: {
+             "Content-Type": "application/json",
+           },
+           cache: "no-cache",
+         });
+         const data = await res.json();
+       //  alert(JSON.stringify(data))
         // console.log(data)
-        const result = await redirectToCheckout();
+        const result = await redirectToCheckout(data.sessionId);
         if (result?.error) {
           console.error(result);
           setStatus("redirect-error");
