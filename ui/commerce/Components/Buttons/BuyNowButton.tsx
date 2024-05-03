@@ -7,7 +7,7 @@ export const BuyNowButton = ({ product }: any) => {
   const { redirectToCheckout, cartDetails }: any = useShoppingCart()
   const {selectedColor, selectedSize} = useCommerceStore()
   const [status, setStatus] = useState("idle");
-  console.log(cartDetails, "- CART DETAILS", product, "- PRODUCT")
+  //console.log(cartDetails, "- CART DETAILS", product, "- PRODUCT")
   async function buyNow(product: any) {
    // // console.log("beginning checkout");
    // event.preventDefault();
@@ -44,7 +44,7 @@ export const BuyNowButton = ({ product }: any) => {
     <button
       disabled={!selectedColor && !selectedSize || status == 'loading' }
       onClick={() => buyNow(product)}
-      className="w-full border border-zinc-800  text-white py-2 px-4 rounded font-bold hover:bg-zinc-900"
+      className="w-full border border-zinc-800  text-white py-2 px-4 rounded font-bold hover:bg-zinc-900 hidden"
     >
       Buy Now
     </button>
