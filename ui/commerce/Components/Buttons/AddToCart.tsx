@@ -7,7 +7,7 @@ import { useShoppingCart } from "use-shopping-cart";
 function AddToCart({ product }: { product: Product | any }) {
   const { addItem }: any = useShoppingCart();
   const {selectedColor, selectedSize} = useCommerceStore()
-  console.log(product)
+  //console.log(product)
   const qty = 1;
   return selectedColor && selectedSize && (
     <button

@@ -1,32 +1,51 @@
 "use client";
 import { useCommerceStore } from "ui/commerce/CommerceStore";
 import { useShoppingCart } from "use-shopping-cart";
+import React, { useState } from "react";
 
 export const BuyNowButton = ({ product }: any) => {
-  const { checkoutSingleItem } = useShoppingCart();
+  const { redirectToCheckout, cartCount, totalPrice, cartDetails, addItem } = useShoppingCart()
   const {selectedColor, selectedSize} = useCommerceStore()
+  const [status, setStatus] = useState("idle");
 
-  async function buyNow(priceId: string) {
-    checkoutSingleItem(priceId);
+  async function buyNow(product) {
+   // // console.log("beginning checkout");
+   addItem(product, { product_metadata: { size: selectedSize, color: selectedColor } })
 
-    //     console.log('buying')
-    // const { name, image, description, currency } = product
-    // const price = formatCurrencyString({ value: product.price, currency: 'USD', language: 'en-US' })
-
-    // const response = await fetch("http://localhost:3000/api/create-checkout-session", {
-    //   method: "post",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ [product._id]: { ...product, quantity: 1 } }),
-    // })
-    // const data = await response.json()
-    // console.log(data)
-    // redirectToCheckout(data.sessionId)
+   // event.preventDefault();
+    if (cartCount && cartCount > 0) {
+      setStatus("loading");
+     // console.log(cartDetails)
+      try {
+        const res = await fetch("/api/checkout-session", {
+          method: "POST",
+          body: JSON.stringify(cartDetails),
+           headers: {
+             "Content-Type": "application/json",
+           },
+           cache: "no-cache",
+         });
+         const data = await res.json();
+       //  alert(JSON.stringify(data))
+        // console.log(data)
+        const result = await redirectToCheckout(data.sessionId);
+        if (result?.error) {
+          console.error(result);
+          setStatus("redirect-error");
+        }
+      } catch (error) {
+        console.error(error);
+        setStatus("redirect-error");
+      }
+    } else {
+      setStatus("no-items");
+    }
   }
 
   return selectedColor && selectedSize && (
     <button
-      disabled={!selectedColor && !selectedSize}
-    //  onClick={() => buyNow(product.price_id)}
+      disabled={!selectedColor && !selectedSize || status == 'loading' }
+      onClick={() => buyNow(product)}
       className="w-full border border-zinc-800  text-white py-2 px-4 rounded font-bold hover:bg-zinc-900"
     >
       Buy Now
