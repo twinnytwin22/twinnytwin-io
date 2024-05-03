@@ -4,7 +4,7 @@ import { useShoppingCart } from "use-shopping-cart";
 import React, { useState } from "react";
 
 export const BuyNowButton = ({ product }: any) => {
-  const { redirectToCheckout, cartCount, totalPrice, cartDetails, addItem } = useShoppingCart()
+  const { redirectToCheckout, cartCount, totalPrice, cartDetails, addItem }: any = useShoppingCart()
   const {selectedColor, selectedSize} = useCommerceStore()
   const [status, setStatus] = useState("idle");
 
