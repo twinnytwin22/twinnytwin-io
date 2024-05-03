@@ -27,6 +27,7 @@ async function Page({ params }: { params: { id: string } }) {
                 alt="Product Image"
               />
             </div>
+            
             <div className="flex -mx-2 mb-4 border-t border-zinc-800 p-4 font-owners font-bold">
               <div className="w-1/2 px-2">
                 <AddToCart product={product} />
@@ -62,33 +63,12 @@ async function Page({ params }: { params: { id: string } }) {
                 Select Color:
               </span>
               <ColorSelectionButtons colors={product?.colors} />
-              {/* <div className="flex items-center mt-2">
-                {product?.colors.map((color: string) => {
-                  return (
-                    <button
-                      style={{
-                        backgroundColor: color,
-                      }}
-                      key={color}
-                      className={`w-6 h-6 rounded-full border-zinc-600 border mr-2`}
-                    ></button>
-                  );
-                })}
-              </div> */}
+        
             </div>
             <div className="mb-4 font-owners font-bold">
               <span className="text-zinc-300">Select Size:</span>
               <SizeButtonRow sizes={product.sizes} />
-              {/* <div className="flex items-center mt-2">
-                {product.sizes.map((size: string) => (
-                  <button
-                    key={size}
-                    className="text-white py-2 px-4 rounded font-bold mr-2 hover:bg-zinc-900 border-zinc-800 border"
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div> */}
+
             </div>
             <div>
               <span className="font-bold text-zinc-200 font-owners">

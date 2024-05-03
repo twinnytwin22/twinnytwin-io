@@ -9,7 +9,7 @@ function AddToCart({ product }: { product: Product | any }) {
   const {selectedColor, selectedSize} = useCommerceStore()
   console.log(product)
   const qty = 1;
-  return (
+  return selectedColor && selectedSize && (
     <button
       disabled={!selectedColor && !selectedSize}
       aria-label={`Add ${product.name} to your cart`}

@@ -23,7 +23,7 @@ export const BuyNowButton = ({ product }: any) => {
     // redirectToCheckout(data.sessionId)
   }
 
-  return (
+  return selectedColor && selectedSize && (
     <button
       disabled={!selectedColor && !selectedSize}
     //  onClick={() => buyNow(product.price_id)}
