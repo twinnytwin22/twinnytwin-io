@@ -1,4 +1,4 @@
-import { BuyNowButton } from "@/context/CommerceActions";
+import { BuyNowButton } from "ui/commerce/Components/Buttons/BuyNowButton";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import { getProductbyId, getProducts } from "@/utils/db";
 import Image from "next/image";
