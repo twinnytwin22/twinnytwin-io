@@ -29,10 +29,10 @@ async function Page({ params }: { params: { id: string } }) {
             </div>
 
             <div className="flex -mx-2 mb-4 border-t border-zinc-800 p-4 font-owners font-bold">
-              <div className="w-1/2 px-2">
+              <div className="w-full px-2">
                 <AddToCart product={product} />
               </div>
-              <div className="w-1/2 px-2">
+              <div className="w-1/2 px-2 hidden">
                 <BuyNowButton product={product} />
               </div>
             </div>
