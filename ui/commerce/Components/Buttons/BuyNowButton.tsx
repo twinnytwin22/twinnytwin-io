@@ -8,7 +8,7 @@ export const BuyNowButton = ({ product }: any) => {
   const {selectedColor, selectedSize} = useCommerceStore()
   const [status, setStatus] = useState("idle");
 
-  async function buyNow(product) {
+  async function buyNow(product: any) {
    // // console.log("beginning checkout");
    addItem(product, { product_metadata: { size: selectedSize, color: selectedColor } })
 
