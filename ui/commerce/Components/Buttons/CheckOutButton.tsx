@@ -6,8 +6,7 @@ import { useShoppingCart } from "use-shopping-cart";
 function CheckOutButton() {
   const [status, setStatus] = useState("idle");
 
-  const { redirectToCheckout, cartCount, totalPrice, cartDetails } =
-    useShoppingCart();
+  const { redirectToCheckout, cartCount, totalPrice, cartDetails } = useShoppingCart();
   async function handleClick(event: any) {
     // console.log("beginning checkout");
 

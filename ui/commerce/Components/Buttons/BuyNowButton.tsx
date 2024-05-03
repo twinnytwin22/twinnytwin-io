@@ -4,10 +4,10 @@ import { useShoppingCart } from "use-shopping-cart";
 import React, { useState } from "react";
 
 export const BuyNowButton = ({ product }: any) => {
-  const { redirectToCheckout }: any = useShoppingCart()
+  const { redirectToCheckout, cartDetails }: any = useShoppingCart()
   const {selectedColor, selectedSize} = useCommerceStore()
   const [status, setStatus] = useState("idle");
-
+  console.log(cartDetails, "- CART DETAILS", product, "- PRODUCT")
   async function buyNow(product: any) {
    // // console.log("beginning checkout");
    // event.preventDefault();
@@ -17,7 +17,7 @@ export const BuyNowButton = ({ product }: any) => {
       try {
         const res = await fetch("/api/checkout-session", {
           method: "POST",
-          body: JSON.stringify([product, { product_metadata: { size: selectedSize, color: selectedColor } }]),
+          body: JSON.stringify([product, {count: 1, product_metadata: { size: selectedSize, color: selectedColor } }]),
            headers: {
              "Content-Type": "application/json",
            },
