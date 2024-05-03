@@ -22,9 +22,11 @@ function CartEntry({
   entry,
   removeItem,
 }: {
-  entry: ICartEntry;
+  entry: ICartEntry | any;
   removeItem: CartActions["removeItem"];
 }) {
+
+  console.group(entry, 'entry')
   return (
     <div>
       <div
@@ -41,7 +43,7 @@ function CartEntry({
         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
           <div className="mt-5 sm:mt-0">
             <h2 className="text-lg font-bold text-white">{entry.name}</h2>
-            <p className="mt-1 text-xs text-zinc-200">size</p>
+            <p className="mt-1 text-xs text-zinc-200 uppercase">{(entry?.product_data?.size || '')} - {(entry?.product_data?.color || '')}</p>
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-dark-100">
@@ -86,7 +88,7 @@ function Cart() {
   const cartEntries = Object.values(cartDetails ?? {}).map((entry) => (
     <CartEntry key={entry._id} entry={entry} removeItem={removeItem as any} />
   ));
-  console.log("cd", cartEntries.length);
+  //console.log("cd", cartEntries.length);
 
   return (
     <main className="relative max-w-7xl w-full py-28 mx-auto p-8">
@@ -131,12 +133,6 @@ function Cart() {
 }
 
 function Page() {
-  const cart = useShoppingCart();
-  const { removeItem, cartDetails, clearCart, formattedTotalPrice } = cart;
-  const cartEntries = Object.values(cartDetails ?? {}).map((entry) => (
-    <CartEntry key={entry._id} entry={entry} removeItem={removeItem as any} />
-  ));
-  console.log("cd", cartEntries);
 
   return (
     <main className="">
