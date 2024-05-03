@@ -27,7 +27,7 @@ async function Page({ params }: { params: { id: string } }) {
                 alt="Product Image"
               />
             </div>
-            
+
             <div className="flex -mx-2 mb-4 border-t border-zinc-800 p-4 font-owners font-bold">
               <div className="w-1/2 px-2">
                 <AddToCart product={product} />
@@ -51,7 +51,7 @@ async function Page({ params }: { params: { id: string } }) {
                 </span>
                 <span className="text-zinc-300"> ${product.price}</span>
               </div>
-              <div>
+               <div>
                 <span className="font-owners font-bold text-zinc-300">
                   Availability:
                 </span>
