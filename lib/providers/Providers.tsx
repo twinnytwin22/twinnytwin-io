@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CartProviderWrapper from "./cart-provider/CartProvider";
 import Script from "next/script";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const queryClient = new QueryClient();
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
@@ -22,6 +24,8 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
           <Suspense>
             {children}
             {/* </ThemeProvider> */}
+            <ToastContainer />
+
           </Suspense>
         </CartProviderWrapper>
         {/* </AuthContextProvider> */}

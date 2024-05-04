@@ -21,7 +21,6 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <LinkModal />
-
           {children}
           <br />
           <Footer />

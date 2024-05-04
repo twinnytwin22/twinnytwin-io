@@ -26,7 +26,7 @@ function CartEntry({
   removeItem: CartActions["removeItem"];
 }) {
 
-  console.group(entry, 'entry')
+ // console.group(entry, 'entry')
   return (
     <div>
       <div
@@ -85,8 +85,8 @@ function CartEntry({
 function Cart() {
   const cart = useShoppingCart();
   const { removeItem, cartDetails, clearCart, totalPrice } = cart;
-  const cartEntries = Object.values(cartDetails ?? {}).map((entry) => (
-    <CartEntry key={entry._id} entry={entry} removeItem={removeItem as any} />
+  const cartEntries = Object.values(cartDetails ?? {}).map((entry: any) => (
+    <CartEntry key={entry._id + entry?.product_data?.size} entry={entry} removeItem={removeItem as any} />
   ));
   //console.log("cd", cartEntries.length);
 
