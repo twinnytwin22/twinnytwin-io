@@ -99,7 +99,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      ) : song.type === 'remix' && (
+      ) : song.soundCloudUrl && song.type === 'remix' && (
         <>
         <iframe
                   className="mb-4 scroll-px-24"
