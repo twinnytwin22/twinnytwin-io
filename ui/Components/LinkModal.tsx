@@ -1,7 +1,15 @@
 "use client";
 import React from "react";
-import { FaAmazon, FaSpotify, FaMusic, FaYoutube } from "react-icons/fa6";
-import { SiDeezer, SiTidal } from "react-icons/si";
+import {
+  FaAmazon,
+  FaSpotify,
+  FaDeezer,
+  FaMusic,
+  FaYoutube,
+  FaSoundcloud,
+} from "react-icons/fa6";
+import { SiTidal } from "react-icons/si";
+
 import { useLinkStore } from "./Links/store";
 import Link from "next/link";
 import { getSanityImage } from "lib/providers/sanity/lib/image";
@@ -50,6 +58,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   console.log(song);
 
   const image = getSanityImage(song.coverImage);
+  const songType = song.type === "single" || song.type === 'remix'
   return (
     <div className="link-modal">
       <h1 className="text-lg font-owners font-bold text-center mb-2">
@@ -78,7 +87,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           loading="lazy"
         ></iframe>
       )}
-      {song?.spotifyUrl && song.type === "single" && (
+      {song?.spotifyUrl && song.type === "single" ? (
         <iframe
           className="mb-4"
           src={`https://open.spotify.com/embed/track/${extractTrackId(
@@ -90,44 +99,85 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      )}
-      {song?.appleUrl && (
-        <LinkButton
-          link={song.appleUrl}
-          title={"Listen on Apple Music"}
-          icon={<FaMusic />}
-        />
-      )}
-      {song?.tidalUrl && (
-        <LinkButton
-          link={song.tidalUrl}
-          title={"Listen on Tidal"}
-          icon={<SiTidal />}
-        />
-      )}
-      {song?.youtubeUrl && (
-        <LinkButton
-          link={song.youtubeUrl}
-          title={"Listen on YouTube"}
-          icon={<FaYoutube />}
-        />
-      )}
-      {song?.amazonUrl && (
-        <LinkButton
-          link={song.amazonUrl}
-          title={"Listen on Amazon Music"}
-          icon={<FaAmazon />}
-        />
+      ) : song.type === 'remix' && (
+        <>
+        <iframe
+                  className="mb-4 scroll-px-24"
+
+          width="100%"
+          height="166"
+          // scrolling="no"
+          // frameborder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1853114043%3Fsecret_token%3Ds-YemuH2JLFof&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+        ></iframe>
+        <div style={{ fontSize: '10px', color: '#cccccc', lineBreak: 'anywhere', wordBreak: 'normal', overflow: 'hidden', whiteSpace: 'nowrap',textOverflow: 'ellipsis', fontFamily: 'Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif',fontWeight: 100}}>
+       
+      </div>
+  </>
       )}
 
-      {song?.deezerUrl && (
-        <LinkButton
-          link={song.deezerUrl}
-          title={"Listen on Deezer"}
-          icon={<SiDeezer />}
-        />
-      )}
-    </div>
+      {/* {!song.spotifyUrl && song.soundCloudUrl &&  (
+     
+  )
+} */}
+{
+  song?.appleUrl && (
+    <LinkButton
+      link={song.appleUrl}
+      title={"Listen on Apple Music"}
+      icon={<FaMusic />}
+    />
+  )
+}
+{
+  song?.tidalUrl && (
+    <LinkButton
+      link={song.tidalUrl}
+      title={"Listen on Tidal"}
+      icon={<SiTidal />}
+    />
+  )
+}
+{
+  song?.youtubeUrl && (
+    <LinkButton
+      link={song.youtubeUrl}
+      title={"Listen on YouTube"}
+      icon={<FaYoutube />}
+    />
+  )
+}
+{
+  song?.amazonUrl && (
+    <LinkButton
+      link={song.amazonUrl}
+      title={"Listen on Amazon Music"}
+      icon={<FaAmazon />}
+    />
+  )
+}
+
+{
+  song?.deezerUrl && (
+    <LinkButton
+      link={song.deezerUrl}
+      title={"Listen on Deezer"}
+      icon={<FaDeezer />}
+    />
+  )
+}
+
+{
+  song?.soundCloudUrl && (
+    <LinkButton
+      link={song.soundCloudUrl}
+      title={"Listen on SoundCloud"}
+      icon={<FaSoundcloud />}
+    />
+  )
+}
+    </div >
   );
 };
 

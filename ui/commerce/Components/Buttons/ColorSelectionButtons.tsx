@@ -10,6 +10,7 @@ function ColorSelectionButtons({ colors }: { colors: string[] }) {
       {colors.map((color: string) => {
         return (
           <button
+            
             onClick={() => setSelectedColor(color)}
             className={`w-6 h-6 rounded-full  mr-2  border-zinc-600 border ${color === selectedColor ? "ring ring-red-400 bg-zinc-800" : ""}`}
             style={{

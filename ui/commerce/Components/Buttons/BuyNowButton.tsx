@@ -40,7 +40,7 @@ export const BuyNowButton = ({ product }: any) => {
     }
   }
 
-  return selectedColor && selectedSize && (
+  return selectedColor && selectedSize ? (
     <button
       disabled={!selectedColor && !selectedSize || status == 'loading' }
       onClick={() => buyNow(product)}
@@ -48,5 +48,7 @@ export const BuyNowButton = ({ product }: any) => {
     >
       Buy Now
     </button>
-  );
+  )  : (
+    <></>
+  );;
 };

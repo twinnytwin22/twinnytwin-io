@@ -47,3 +47,17 @@ export const getSiteSettings = async () => {
   const res = await fetchSanity(query);
   return res;
 };
+
+
+export async function getAllSlugs() {
+  const query = '*%5B_type%20%3D%3D%20%22collection%22%20%26%26%20defined(slug.current)%5D%5B%5D.slug.current'
+  const res = await fetchSanity(query);
+  return res;
+}
+
+export async function getAllNFTs() {
+  const query = '*%5B_type+%3D%3D+%22collection%22%5D'
+  const res = await fetchSanity(query);
+  console.log(res)
+  return res;
+}

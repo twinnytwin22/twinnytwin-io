@@ -12,6 +12,7 @@ function ShopSection({ products }: any) {
       <div className="relative max-w-6xl w-full mx-auto">
         <div className="flex w-full justify-between overflow-x-scroll  h-fit items-center scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent ">
           {products.map((product: any) => (
+            <div key={product._id}>
             <Link
               href={`/product/${product._id}`}
               className="p-4"
@@ -26,6 +27,7 @@ function ShopSection({ products }: any) {
               />
               <p className="hidden">{product.name.en_us}</p>
             </Link>
+            </div>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
+import { truncateText } from "@/lib/hooks/truncateText";
 
 function LatestReleases({ songs }: { songs?: any }) {
   return (
@@ -22,8 +23,8 @@ function LatestReleases({ songs }: { songs?: any }) {
                   className="rounded min-w-36 min-h-36 md:min-w-48 md:min-h-48    "
                 />
                 <p className="text-sm font-owners tracking-wider">
-                  {release.title}
-                </p>
+                {truncateText({text: release.title, maxLength: 30})}         
+                       </p>
               </Link>
             </div>
           ))}

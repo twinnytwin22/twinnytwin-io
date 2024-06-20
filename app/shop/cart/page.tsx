@@ -1,18 +1,18 @@
 "use client";
 import { grandTotal } from "@/lib/constants";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
-import Image from "next/image";
+import Image from "next/image"
 import React from "react";
 import CheckOutButton from "ui/commerce/Components/Buttons/CheckOutButton";
 import DecrementItem from "ui/commerce/Components/Buttons/DecrementItem";
 import IncrementItem from "ui/commerce/Components/Buttons/IncrementItem";
 import {
   useShoppingCart,
-  DebugCart,
-  formatCurrencyString,
+//  DebugCart,
+  //formatCurrencyString,
 } from "use-shopping-cart";
 import {
-  Product,
+ // Product,
   CartActions,
   CartEntry as ICartEntry,
 } from "use-shopping-cart/core";
@@ -25,6 +25,8 @@ function CartEntry({
   entry: ICartEntry | any;
   removeItem: CartActions["removeItem"];
 }) {
+
+  const cumulativePrice = (entry.price * entry.quantity).toFixed(2)
 
  // console.group(entry, 'entry')
   return (
@@ -58,7 +60,7 @@ function CartEntry({
               <IncrementItem id={entry.id} />
             </div>
             <div className="flex items-center space-x-4">
-              <p className="text-sm">{entry.price * entry.quantity}</p>
+              <p className="text-sm">{cumulativePrice}</p>
               <svg
                 onClick={() => removeItem(entry.id)}
                 xmlns="http://www.w3.org/2000/svg"

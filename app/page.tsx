@@ -1,6 +1,7 @@
 import Shows from "@/ui/show-section/shows";
 import ShopSection from "ui/merch-section/ShopSection";
 import Image from "next/image";
+import {truncateText} from 'lib/hooks/truncateText'
 import LatestReleases from "ui/latest-releases/LatestReleases";
 import SocialRow from "ui/social-row/SocialRow";
 import { getSongs, getLinks, getProducts, getShows } from "@/utils/db";
@@ -90,14 +91,30 @@ const HRLine = () => {
 };
 
 const ConnectBox = ({ latestRelease }: any) => {
+
+  console.log(latestRelease)
+  const isDateInFuture = (date: string): boolean => {
+    // Parse the release date and get the current date in the Phoenix time zone
+    const releaseDateInPhoenix = new Date(date).toLocaleString('en-US', { timeZone: 'America/Phoenix' });
+    const nowInPhoenix = new Date().toLocaleString('en-US', { timeZone: 'America/Phoenix' });
+
+    // Convert to Date objects for comparison
+    const releaseDateObj = new Date(releaseDateInPhoenix);
+    const nowObj = new Date(nowInPhoenix);
+
+    // Check if the release date is after the current date
+    return releaseDateObj > nowObj;
+  };
+  const isFutureRelease = isDateInFuture(latestRelease.releaseDate);
+
   return (
     <div className="relative space-y-4 w-72 bg-black bg-opacity-60 rounded-lg p-8 border border-zinc-800 shadow-sm shadow-zinc-900">
       <div>
         <div className="text-center font-owners font-extrabold text-lg">
-          LATEST RELEASE
+         {isFutureRelease ? "UPCOMING RELEASE" : "LATEST RELEASE"} 
         </div>
         <p className="text-center font-owners text-base tracking-wider">
-          {latestRelease.title}
+          {truncateText({text: latestRelease.title, maxLength: 23})}
         </p>
         <p className="text-xs font-owners text-center tracking-wider">
           Twinny Twin, {latestRelease.additionalArtists}
