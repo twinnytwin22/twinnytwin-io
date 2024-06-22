@@ -60,7 +60,9 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   console.log(song);
 
   const image = getSanityImage(song.coverImage);
-  //const songType = song.type === "single" || song.type === 'remix'
+  const songTypes = ['single', 'remix']
+  const songType = songTypes.includes(song.type)
+  console.log(songType, song.type)
   const isFutureRelease = song.launchat ? isDateInFutureTZ(song.launchat) : isDateInFuture(song.releaseDate);
   const soundCloudEmbedURL = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${song.soundCloudTrackID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`
 
@@ -92,7 +94,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           loading="lazy"
         ></iframe>
       )}
-      {song?.spotifyUrl && song.type === "single" ? (
+      {song?.spotifyUrl && songType ? (
         <iframe
           className="mb-4"
           src={`https://open.spotify.com/embed/track/${extractTrackId(
@@ -104,7 +106,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      ) : !song.spotifyUrl && song.soundCloudUrl && song.type === 'remix' && !isFutureRelease && (
+      ) : !song.spotifyUrl && song.soundCloudUrl && songType && !isFutureRelease && (
         <>
           <iframe
             className="mb-4 scroll-px-24"
