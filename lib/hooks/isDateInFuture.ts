@@ -1,4 +1,3 @@
-'use client'
 export const isDateInFuture = (date: string): boolean => {
     // Parse the release date and get the current date in the Phoenix time zone
     const releaseDateInPhoenix = new Date(date).toLocaleString('en-US', { timeZone: 'America/Phoenix' });
