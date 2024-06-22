@@ -8,6 +8,7 @@ import { getSongs, getLinks, getProducts, getShows } from "@/utils/db";
 import { Suspense } from "react";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import Link from "next/link";
+import { isDateInFuture } from "@/lib/hooks/isDateInFuture";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   const [songs, shows, products] = await Promise.all([
@@ -93,18 +94,7 @@ const HRLine = () => {
 const ConnectBox = ({ latestRelease }: any) => {
 
   console.log(latestRelease)
-  const isDateInFuture = (date: string): boolean => {
-    // Parse the release date and get the current date in the Phoenix time zone
-    const releaseDateInPhoenix = new Date(date).toLocaleString('en-US', { timeZone: 'America/Phoenix' });
-    const nowInPhoenix = new Date().toLocaleString('en-US', { timeZone: 'America/Phoenix' });
-
-    // Convert to Date objects for comparison
-    const releaseDateObj = new Date(releaseDateInPhoenix);
-    const nowObj = new Date(nowInPhoenix);
-
-    // Check if the release date is after the current date
-    return releaseDateObj > nowObj;
-  };
+  
   const isFutureRelease = isDateInFuture(latestRelease.releaseDate);
 
   return (

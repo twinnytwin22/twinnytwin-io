@@ -17,6 +17,7 @@ import Image from "next/image";
 import { useHandleOutsideClick } from "utils/hooks/handleOutsideClick";
 import { SocialLinkGroup } from "./Links/SocialLinksGroup";
 import SignUpButton, { SignUpModal } from "./SignUpModal";
+import { isDateInFuture } from "@/lib/hooks/isDateInFuture";
 
 const spotifyUrlRegex: { [key: string]: RegExp } = {
   artist: /https:\/\/open.spotify.com\/artist\/([a-zA-Z0-9]+)/,
@@ -60,6 +61,8 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
 
   const image = getSanityImage(song.coverImage);
   const songType = song.type === "single" || song.type === 'remix'
+  const isFutureRelease = isDateInFuture(song.releaseDate);
+
   return (
     <div className="link-modal">
 
@@ -179,7 +182,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
     />
   )
 }
-{
+{isFutureRelease &&
   <SignUpButton/>
 }
     </div >
