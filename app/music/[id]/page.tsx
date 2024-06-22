@@ -3,19 +3,24 @@ import React from "react";
 import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import { ButtonGroup } from "ui/Components/LinkModal";
 import { getLinks, getSongs } from "utils/db";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0
-
-export async function generateMetadata({ params }: { params: { id: string } })  {
+export async function generateMetadata({ params }: { params: { id: string } }):Promise<Metadata>  {
   const [songs, links] = await Promise.all([getSongs(), getLinks()]);
   const { id } = params;
   const song = songs.find((song: any) => song._id === id);
+  const image = getSanityImage(song.coverImage)
   return {
     title: song.title,
-    image: getSanityImage(song.coverImage)
+    openGraph: {
+      title: song.title, 
+      images: [image]
+    }
   }
 }
+
 
 async function page({ params }: { params: { id: string } }) {
   const [songs, links] = await Promise.all([getSongs(), getLinks()]);
