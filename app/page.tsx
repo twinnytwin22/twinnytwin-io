@@ -10,6 +10,7 @@ import { getSanityImage } from "@/lib/providers/sanity/lib/image";
 import Link from "next/link";
 import { isDateInFuture } from "@/lib/hooks/isDateInFuture";
 export const dynamic = "force-dynamic";
+export const revalidate = 0
 export default async function Home() {
   const [songs, shows, products] = await Promise.all([
     getSongs(),

@@ -5,6 +5,17 @@ import { ButtonGroup } from "ui/Components/LinkModal";
 import { getLinks, getSongs } from "utils/db";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0
+
+export async function generateMetadata({ params }: { params: { id: string } })  {
+  const [songs, links] = await Promise.all([getSongs(), getLinks()]);
+  const { id } = params;
+  const song = songs.find((song: any) => song._id === id);
+  return {
+    title: song.title,
+    image: getSanityImage(song.coverImage)
+  }
+}
 
 async function page({ params }: { params: { id: string } }) {
   const [songs, links] = await Promise.all([getSongs(), getLinks()]);
