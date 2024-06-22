@@ -5,7 +5,7 @@ let stripeInstance: Stripe | undefined;
 try {
   stripeInstance = new Stripe(process.env.STRIPE_SECRET_KEY_LIVE! as string, {
     // https://github.com/stripe/stripe-node#configuration
-    apiVersion: "2023-10-16",
+    apiVersion: "2024-04-10",
     // Register this as an official Stripe plugin.
     // https://stripe.com/docs/building-plugins#setappinfo
     appInfo: {
