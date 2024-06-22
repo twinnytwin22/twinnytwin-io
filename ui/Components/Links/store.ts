@@ -8,9 +8,13 @@ interface ISong {
 }
 
 interface ILinkStore {
-  song: any;
+  song: any | null;
+  setSignUpFormOpen: (isOpen: boolean) => void;
+  signUpFormOpen: boolean;
 }
 
 export const useLinkStore = create<ILinkStore>((set) => ({
   song: null,
+  setSignUpFormOpen: (isOpen: boolean) => set({ signUpFormOpen: isOpen }),
+  signUpFormOpen: false,
 }));

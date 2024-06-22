@@ -16,6 +16,7 @@ import { getSanityImage } from "lib/providers/sanity/lib/image";
 import Image from "next/image";
 import { useHandleOutsideClick } from "utils/hooks/handleOutsideClick";
 import { SocialLinkGroup } from "./Links/SocialLinksGroup";
+import SignUpButton, { SignUpModal } from "./SignUpModal";
 
 const spotifyUrlRegex: { [key: string]: RegExp } = {
   artist: /https:\/\/open.spotify.com\/artist\/([a-zA-Z0-9]+)/,
@@ -34,7 +35,7 @@ function extractTrackId(url: string, type: string) {
 }
 
 function LinkModal() {
-  const { song } = useLinkStore();
+  const { song, signUpFormOpen } = useLinkStore();
   const setSong = (song: any) => useLinkStore.setState({ song });
 
   useHandleOutsideClick(song, setSong, "link-modal");
@@ -61,6 +62,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   const songType = song.type === "single" || song.type === 'remix'
   return (
     <div className="link-modal">
+
       <h1 className="text-lg font-owners font-bold text-center mb-2">
         {song?.title}
       </h1>
@@ -177,11 +179,14 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
     />
   )
 }
+{
+  <SignUpButton/>
+}
     </div >
   );
 };
 
-const LinkButton = ({ link, title, icon }: any) => {
+export const LinkButton = ({ link, title, icon, setIsOpen }: any) => {
   return (
     <Link target="_blank" href={link}>
       <div className="text-white text-center w-full font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 bg-black hover:bg-zinc-950 focus:outline-none  border border-zinc-800">
