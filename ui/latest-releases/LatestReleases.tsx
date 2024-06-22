@@ -23,7 +23,7 @@ function LatestReleases({ songs }: { songs?: any }) {
                   className="rounded min-w-36 min-h-36 md:min-w-48 md:min-h-48    "
                 />
                 <p className="text-sm font-owners tracking-wider">
-                {truncateText({text: release.title, maxLength: 150})}         
+                {truncateText({text: release.title, maxLength: 28})}         
                        </p>
               </Link>
             </div>

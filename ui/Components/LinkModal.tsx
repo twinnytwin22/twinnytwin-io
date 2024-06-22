@@ -62,6 +62,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   const image = getSanityImage(song.coverImage);
   const songType = song.type === "single" || song.type === 'remix'
   const isFutureRelease = isDateInFuture(song.releaseDate);
+  const soundCloudEmbedURL = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${song.soundCloudTrackID}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`
 
   return (
     <div className="link-modal">
@@ -104,7 +105,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      ) : song.soundCloudUrl && song.type === 'remix' && (
+      ) : !song.spotifyUrl && song.soundCloudUrl && song.type === 'remix' && !isFutureRelease && (
         <>
         <iframe
                   className="mb-4 scroll-px-24"
@@ -114,7 +115,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
           // scrolling="no"
           // frameborder="no"
           allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1853114043%3Fsecret_token%3Ds-YemuH2JLFof&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          src={soundCloudEmbedURL}
         ></iframe>
         <div style={{ fontSize: '10px', color: '#cccccc', lineBreak: 'anywhere', wordBreak: 'normal', overflow: 'hidden', whiteSpace: 'nowrap',textOverflow: 'ellipsis', fontFamily: 'Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif',fontWeight: 100}}>
        
@@ -127,7 +128,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   )
 } */}
 {
-  song?.appleUrl && (
+  song?.appleUrl && !isFutureRelease &&  (
     <LinkButton
       link={song.appleUrl}
       title={"Listen on Apple Music"}
@@ -136,7 +137,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   )
 }
 {
-  song?.tidalUrl && (
+  song?.tidalUrl && !isFutureRelease &&  (
     <LinkButton
       link={song.tidalUrl}
       title={"Listen on Tidal"}
@@ -145,7 +146,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   )
 }
 {
-  song?.youtubeUrl && (
+  song?.youtubeUrl && !isFutureRelease &&  (
     <LinkButton
       link={song.youtubeUrl}
       title={"Listen on YouTube"}
@@ -154,7 +155,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
   )
 }
 {
-  song?.amazonUrl && (
+  song?.amazonUrl && !isFutureRelease &&  (
     <LinkButton
       link={song.amazonUrl}
       title={"Listen on Amazon Music"}
@@ -164,7 +165,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
 }
 
 {
-  song?.deezerUrl && (
+  song?.deezerUrl && !isFutureRelease &&  (
     <LinkButton
       link={song.deezerUrl}
       title={"Listen on Deezer"}
@@ -174,7 +175,7 @@ export const ButtonGroup = ({ song, links }: { song: any; links?: any }) => {
 }
 
 {
-  song?.soundCloudUrl && (
+  song?.soundCloudUrl && !isFutureRelease &&  (
     <LinkButton
       link={song.soundCloudUrl}
       title={"Listen on SoundCloud"}
