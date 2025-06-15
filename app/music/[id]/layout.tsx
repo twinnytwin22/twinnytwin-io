@@ -3,6 +3,8 @@ import React from 'react'
 import { useLinkStore } from 'ui/Components/Links/store';
 import {SignUpModal} from 'ui/Components/SignUpModal'
 
+
+
 function Layout({ children }: { children: React.ReactNode }) {
     const { song, signUpFormOpen } = useLinkStore();
 

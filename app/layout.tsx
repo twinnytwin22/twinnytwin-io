@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name='impact-site-verification' content='9e7e8bd5-68e2-4fe1-88e4-16b7b3720ca9' />
+      </head>
       <body className="overflow-x-hidden h-full relative">
         <Providers>
           <Navbar />
